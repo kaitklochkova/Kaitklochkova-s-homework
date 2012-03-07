@@ -16,9 +16,13 @@ class Stack {
     }
 
     public int pop() {
-        int answer = head.value;
-        head = head.next;
-        return answer;
+        if (!isEmpty()) {
+            int answer = head.value;
+            head = head.next;
+            return answer;
+        } else {
+            return -1;
+        }
     }
 
     public boolean isEmpty() {
@@ -26,7 +30,11 @@ class Stack {
     }
 
     public int top() {
-        return head.value;
+        if (!isEmpty()) {
+            return head.value;
+        } else {
+            return -1;
+        }
     }
 
     private class StackElement {
@@ -47,6 +55,5 @@ public class Z4Stack {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
     }
 }

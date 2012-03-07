@@ -31,6 +31,12 @@ public class StackTest {
     @After
     public void tearDown() {
     }
+    
+    @Test
+    public void testIsEmptyOnEmptyStack() {
+        Stack stack = new Stack();
+        assertTrue(stack.isEmpty());
+    }
 
     @Test
     public void testAddToEmptyStack() {
@@ -40,10 +46,23 @@ public class StackTest {
     }
 
     @Test
+    public void testIsEmpty() {
+        Stack stack = new Stack();
+        stack.push(1);
+        assertFalse(stack.isEmpty());
+    }
+    
+    @Test
     public void testTopOneEl() {
         Stack stack = new Stack();
         stack.push(1);
         assertEquals(1, stack.top());
+    }
+    
+    @Test
+    public void testTopOfEmptyStack() {
+        Stack stack = new Stack();
+        assertEquals(-1, stack.top());
     }
     
     @Test
@@ -56,10 +75,15 @@ public class StackTest {
     }
     
     @Test
-    public void testPopOneEl() {
+    public void testPop() {
         Stack stack = new Stack();
         stack.push(1);
         assertEquals(1, stack.pop());
     }
     
+    @Test
+    public void testPopOfEmtyStack() {
+        Stack stack = new Stack();
+        assertEquals(-1, stack.pop());
+    }
 }
