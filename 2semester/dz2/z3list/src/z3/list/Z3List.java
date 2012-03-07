@@ -54,11 +54,8 @@ class List {
     public class ListIterator {
 
         public boolean isGood() {
-            if (link != null) {
-                return true;
-            } else {
-                return false;
-            }
+            return link != null;
+            
         }
 
         public int getValue() {
