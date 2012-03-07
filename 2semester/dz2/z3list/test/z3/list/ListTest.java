@@ -4,31 +4,37 @@
  */
 package z3.list;
 
-import junit.framework.TestCase;
+import org.junit.*;
+import static org.junit.Assert.*;
 import z3.list.List.ListIterator;
 
 /**
  *
  * @author Miracle
  */
-public class ListTest1 extends TestCase {
-    
-    public ListTest1(String testName) {
-        super(testName);
+public class ListTest {
+
+    public ListTest() {
     }
-    
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
     }
-    
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
+    @Before
+    public void setUp() {
+    }
+
+    @After
+    public void tearDown() {
     }
 
     /**
-     * Test of add method, of class List.
+     * Test of getIterator method, of class List.
      */
     
     @Test
@@ -43,6 +49,7 @@ public class ListTest1 extends TestCase {
      * Test of add method, of class List.
      */
     
+    @Test
     public void testAdd() {
         List list = new List();
         list.addToHead(1);
@@ -52,11 +59,12 @@ public class ListTest1 extends TestCase {
         iterator.next();
         assertEquals(2, iterator.getValue());
     }
-    
+
     /**
      * Test of clear method, of class List.
      */
     
+    @Test
     public void testClear() {
         List list = new List();
         list.addToHead(1);
@@ -71,6 +79,7 @@ public class ListTest1 extends TestCase {
      * Test of delEl method, of class List.
      */
     
+    @Test
     public void testDelLastEl() {
         List list = new List();
         list.addToHead(1);
@@ -82,11 +91,12 @@ public class ListTest1 extends TestCase {
         iterator.next();
         assertEquals(2, iterator.getValue());
     }
-    
+
     /**
      * Test of delEl method, of class List.
      */
-   
+    
+    @Test
     public void testDelFirstAndLastEl() {
         List list = new List();
         list.addToHead(1);
@@ -97,11 +107,12 @@ public class ListTest1 extends TestCase {
         List.ListIterator iterator = list.getIterator();
         assertEquals(2, iterator.getValue());
     }
-    
+
     /**
      * Test of delEl method, of class List.
      */
     
+    @Test
     public void testDelTwoFirstEl() {
         List list = new List();
         list.addToHead(1);
@@ -114,12 +125,12 @@ public class ListTest1 extends TestCase {
         iterator.next();
         assertEquals(1, iterator.getValue());
     }
-    
 
     /**
      * Test of delEl method, of class List.
      */
     
+    @Test
     public void testDelTwoMidleEl() {
         List list = new List();
         list.addToHead(1);
@@ -132,25 +143,25 @@ public class ListTest1 extends TestCase {
         iterator.next();
         assertEquals(1, iterator.getValue());
     }
-    
+
     /**
      * Test of GetIterator method, of class List.
      */
-   
+    
+    @Test
     public void testGetIterator() {
         List list = new List();
         list.addToHead(1);
         list.addToHead(2);
         assertEquals(2, list.getIterator().getValue());
     }
-    
+
     /**
      * Test of GetIterator method, of class List.
      */
-    
+    @Test
     public void testGetIteratorOfEmptyList() {
         List list = new List();
         assertFalse(list.getIterator().isGood());
     }
-    
 }
