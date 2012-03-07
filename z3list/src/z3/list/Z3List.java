@@ -32,16 +32,13 @@ class List {
             ListElement i = head;
             while (i.value == valueForDel) {
                 head = i.next;
+                i = head;
             }
             while (i.next != null) {
-                if (i.next == null) {
-                    i.next = null;
+                if (i.next.value == valueForDel) {
+                    i.next = i.next.next;
                 } else {
-                    if (i.next.value == valueForDel) {
-                        i.next = i.next.next;
-                    } else {
-                        i = i.next;
-                    }
+                    i = i.next;
                 }
             }
             return 0;
