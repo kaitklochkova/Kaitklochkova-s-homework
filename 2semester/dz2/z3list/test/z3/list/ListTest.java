@@ -36,9 +36,8 @@ public class ListTest {
     /**
      * Test of getIterator method, of class List.
      */
-    
     @Test
-    public void testAddToEmptyList() {
+    public void testAddToHeadToEmptyList() {
         List list = new List();
         list.addToHead(1);
         List.ListIterator iterator = list.getIterator();
@@ -48,9 +47,8 @@ public class ListTest {
     /**
      * Test of add method, of class List.
      */
-    
     @Test
-    public void testAdd() {
+    public void testAddToHead() {
         List list = new List();
         list.addToHead(1);
         list.addToHead(2);
@@ -59,11 +57,61 @@ public class ListTest {
         iterator.next();
         assertEquals(2, iterator.getValue());
     }
+    
+    /**
+     * Test of add method, of class List.
+     */
+    /*@Test
+    public void testAdd() {
+        List list = new List();
+        list.add(3);
+        list.add(2);
+        list.add(1);
+        List.ListIterator iterator = list.getIterator();
+        assertEquals(1, iterator.getValue());
+    }
+    
+    /**
+     * Test of getIterator method, of class List.
+     */
+    @Test
+    public void testAddToTailToEmptyList() {
+        List list = new List();
+        list.addToTail(1);
+        List.ListIterator iterator = list.getIterator();
+        assertEquals(1, iterator.getValue());
+    }
+    
+    /**
+     * Test of getIterator method, of class List.
+     */
+    @Test
+    public void testAddToTail() {
+        List list = new List();
+        for (int i = 0; i < 5; i++) {
+            list.addToTail(i);
+        }
+        List.ListIterator iterator = list.getIterator();
+        assertEquals(0, iterator.getValue());
+    }
+    
+    /**
+     * Test of getIterator method, of class List.
+     */
+    @Test
+    public void testAddToTailAndCheckSecondEl() {
+        List list = new List();
+        for (int i = 0; i < 5; i++) {
+            list.addToTail(i);
+        }
+        List.ListIterator iterator = list.getIterator();
+        iterator.next();
+        assertEquals(1, iterator.getValue());
+    }
 
     /**
      * Test of clear method, of class List.
      */
-    
     @Test
     public void testClear() {
         List list = new List();
@@ -78,7 +126,6 @@ public class ListTest {
     /**
      * Test of delEl method, of class List.
      */
-    
     @Test
     public void testDelLastEl() {
         List list = new List();
@@ -95,7 +142,6 @@ public class ListTest {
     /**
      * Test of delEl method, of class List.
      */
-    
     @Test
     public void testDelFirstAndLastEl() {
         List list = new List();
@@ -111,7 +157,6 @@ public class ListTest {
     /**
      * Test of delEl method, of class List.
      */
-    
     @Test
     public void testDelTwoFirstEl() {
         List list = new List();
@@ -129,7 +174,6 @@ public class ListTest {
     /**
      * Test of delEl method, of class List.
      */
-    
     @Test
     public void testDelTwoMidleEl() {
         List list = new List();
@@ -147,7 +191,6 @@ public class ListTest {
     /**
      * Test of GetIterator method, of class List.
      */
-    
     @Test
     public void testGetIterator() {
         List list = new List();
@@ -163,5 +206,74 @@ public class ListTest {
     public void testGetIteratorOfEmptyList() {
         List list = new List();
         assertFalse(list.getIterator().isGood());
+    }
+
+    /**
+     * Test of GetIterator method, of class List.
+     */
+    @Test
+    public void testisElOfListOfEmptyList() {
+        List list = new List();
+        assertFalse(list.isElOfList(4));
+    }
+
+    /**
+     * Test of GetIterator method, of class List.
+     */
+    @Test
+    public void testisElOfListFirstEl() {
+        List list = new List();
+        for (int i = 0; i < 5; i++) {
+            list.addToHead(i);
+        }
+        assertTrue(list.isElOfList(4));
+    }
+
+    /**
+     * Test of GetIterator method, of class List.
+     */
+    @Test
+    public void testisElOfListMiddleEl() {
+        List list = new List();
+        for (int i = 0; i < 5; i++) {
+            list.addToHead(i);
+        }
+        assertTrue(list.isElOfList(2));
+    }
+
+    /**
+     * Test of GetIterator method, of class List.
+     */
+    @Test
+    public void testisElOfListLastEl() {
+        List list = new List();
+        for (int i = 0; i < 5; i++) {
+            list.addToHead(i);
+        }
+        assertTrue(list.isElOfList(0));
+    }
+
+    /**
+     * Test of GetIterator method, of class List.
+     */
+    @Test
+    public void testisElOfLisNotListed() {
+        List list = new List();
+        for (int i = 0; i < 5; i++) {
+            list.addToHead(i);
+        }
+        assertFalse(list.isElOfList(5));
+    }
+
+    /**
+     * Test of GetIterator method, of class List.
+     */
+    @Test
+    public void testGetCount() {
+        List list = new List();
+        for (int i = 0; i < 5; i++) {
+            list.addToHead(i);
+        }
+        assertEquals(5, list.getCount());
     }
 }
