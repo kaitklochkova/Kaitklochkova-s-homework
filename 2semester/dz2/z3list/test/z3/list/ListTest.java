@@ -61,14 +61,14 @@ public class ListTest {
     /**
      * Test of add method, of class List.
      */
-    /*@Test
+    @Test
     public void testAdd() {
         List list = new List();
         list.add(3);
-        list.add(2);
-        list.add(1);
-        List.ListIterator iterator = list.getIterator();
-        assertEquals(1, iterator.getValue());
+        //list.add(2);
+        //list.add(1);
+        //List.ListIterator iterator = list.getIterator();
+        //assertEquals(1, iterator.getValue());
     }
     
     /**
