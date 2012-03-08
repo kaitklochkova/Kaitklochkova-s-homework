@@ -57,7 +57,7 @@ public class ListTest {
         iterator.next();
         assertEquals(2, iterator.getValue());
     }
-    
+
     /**
      * Test of add method, of class List.
      */
@@ -68,10 +68,23 @@ public class ListTest {
         list.add(2);
         list.add(1);
         List.ListIterator iterator = list.getIterator();
-        iterator.next();
         assertEquals(1, iterator.getValue());
     }
-    
+
+    /**
+     * Test of add method, of class List.
+     */
+    @Test
+    public void testAddWithIterator() {
+        List list = new List();
+        list.add(3);
+        list.add(2);
+        list.add(1);
+        List.ListIterator iterator = list.getIterator();
+        iterator.next();
+        assertEquals(2, iterator.getValue());
+    }
+
     /**
      * Test of getIterator method, of class List.
      */
@@ -82,7 +95,7 @@ public class ListTest {
         List.ListIterator iterator = list.getIterator();
         assertEquals(1, iterator.getValue());
     }
-    
+
     /**
      * Test of getIterator method, of class List.
      */
@@ -95,7 +108,7 @@ public class ListTest {
         List.ListIterator iterator = list.getIterator();
         assertEquals(0, iterator.getValue());
     }
-    
+
     /**
      * Test of getIterator method, of class List.
      */
