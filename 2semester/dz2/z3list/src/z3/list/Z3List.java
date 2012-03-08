@@ -43,18 +43,23 @@ class List {
         ListElement newEl = new ListElement();
         newEl.value = valueForAdd;
         ListElement i = head;
-        while (i.next != null) {
-            if (i.next.value <= valueForAdd) {
-                i = i.next;
-            } else {
-                newEl.next = i.next;
-                i.next = newEl;
-                break;
+        if (head == null) {
+            newEl.next = head;
+            head = newEl;
+        } else {
+            while (i.next != null) {
+                if (i.next.value <= valueForAdd) {
+                    i = i.next;
+                } else {
+                    newEl.next = i.next;
+                    i.next = newEl;
+                    break;
+                }
             }
-        }
-        if (i.next == null) {
-            newEl.next = null;
-            i.next = newEl;
+            if (i.next == null) {
+                newEl.next = null;
+                i.next = newEl;
+            }
         }
         count++;
     }
