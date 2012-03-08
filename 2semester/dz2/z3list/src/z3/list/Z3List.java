@@ -51,10 +51,10 @@ class List {
                 i.next = newEl;
                 break;
             }
-            if (i.next == null) {
-                newEl.next = null;
-                i.next = newEl;        
-            }
+        }
+        if (i.next == null) {
+            newEl.next = null;
+            i.next = newEl;
         }
         count++;
     }
