@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package List;
+package task3;
 
 /**
  *
  * @author Miracle
  */
-class List {
+public class List {
 
     List() {
         head = null;
