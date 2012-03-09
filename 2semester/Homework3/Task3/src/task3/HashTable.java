@@ -12,7 +12,7 @@ public class HashTable {
 
     HashTable() {
         for (int i = 0; i < 100; i++) {
-            bucket[i] = List();
+            bucket[i] = new List();
         }
     }
 
@@ -22,6 +22,17 @@ public class HashTable {
             temp = temp * 101 + str[i];
         }
         return temp;
+    }
+
+    void addHash(char[] str) {
+        int index = hashFun(str) % 100;
+        bucket[index].add(str);
+    }
+
+    void delHash() {
+        for (int i = 0; i < 100; i++) {
+            bucket[i].clear();
+        }
     }
     private List[] bucket;
 }

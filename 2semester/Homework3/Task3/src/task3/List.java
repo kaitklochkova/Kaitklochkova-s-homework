@@ -10,7 +10,7 @@ package task3;
  */
 public class List {
 
-    List() {
+    public List() {
         head = null;
         count = 0;
     }
