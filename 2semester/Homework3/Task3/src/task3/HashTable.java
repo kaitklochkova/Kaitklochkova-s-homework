@@ -10,28 +10,56 @@ package task3;
  */
 public class HashTable {
 
+    /**
+     * constructor of the hash-table
+     */
     HashTable() {
         for (int i = 0; i < 100; i++) {
             bucket[i] = new List();
         }
     }
 
-    public int hashFun(char[] str) {
-        int temp = 0;
-        for (int i = 0; i < str.length; i++) {
-            temp = temp * 101 + str[i];
+    /**
+     * hash-function
+     *
+     * @param str
+     * @return hash-function for the string
+     */
+    public int hashFun(String str) {
+        int tempResult = 0;
+        char[] tempStr = str.toCharArray();
+        for (int i = 0; i < tempStr.length; i++) {
+            tempResult = tempResult * 101 + tempStr[i];
         }
-        return temp;
+        return tempResult;
     }
 
-    void addHash(char[] str) {
+    /**
+     * add element String str to hash
+     *
+     * @param str
+     */
+    void addHash(String str) {
         int index = hashFun(str) % 100;
-        bucket[index].add(str);
+        bucket[index].addToTail(str);
     }
 
+    /**
+     * del hash-table
+     */
     void delHash() {
         for (int i = 0; i < 100; i++) {
             bucket[i].clear();
+        }
+    }
+
+    /**
+     * determine whether there is an element in the hash table
+     * @param str 
+     */
+    void isElementInHashTable(String str) {
+        for (int i = 0; i < 100; i++) {
+            bucket[i].isElementInList(str);
         }
     }
     private List[] bucket;

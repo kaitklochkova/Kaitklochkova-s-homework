@@ -8,14 +8,14 @@ package task3;
  *
  * @author Miracle
  */
-public class List {
+class List {
 
     public List() {
         head = null;
         count = 0;
     }
 
-    public void addToHead(int valueForAdd) {
+    public void addToHead(String valueForAdd) {
         ListElement newEl = new ListElement();
         newEl.next = head;
         newEl.value = valueForAdd;
@@ -23,7 +23,7 @@ public class List {
         count++;
     }
 
-    public void addToTail(int valueForAdd) {
+    public void addToTail(String valueForAdd) {
         ListElement newEl = new ListElement();
         newEl.value = valueForAdd;
         if (head == null) {
@@ -40,7 +40,7 @@ public class List {
         count++;
     }
 
-    public void add(int valueForAdd) {
+   /*public void add(String valueForAdd) {
         ListElement i = head;
         if (head == null) {
             addToHead(valueForAdd);
@@ -67,24 +67,24 @@ public class List {
         }
         count++;
     }
-
+*/
     public void clear() {
         head = null;
         count = 0;
     }
 
-    public int delEl(int valueForDel) {
+    public int delEl(String valueForDel) {
         if (head == null) {
             return -1;
         } else {
             ListElement i = head;
-            while (i.value == valueForDel) {
+            while (i.value.equals(valueForDel)) {
                 head = i.next;
                 count--;
                 i = head;
             }
             while (i.next != null) {
-                if (i.next.value == valueForDel) {
+                if (i.next.value.equals(valueForDel)) {
                     i.next = i.next.next;
                     count--;
                 } else {
@@ -95,16 +95,16 @@ public class List {
         }
     }
 
-    public boolean isElementInList(int number) {
+    public boolean isElementInList(String number) {
         if (head == null) {
             return false;
         } else {
             ListElement i = head;
-            if (i.value == number) {
+            if (i.value.equals(number)) {
                 return true;
             } else {
                 while (i.next != null) {
-                    if (i.next.value == number) {
+                    if (i.next.value.equals(number)) {
                         return true;
                     } else {
                         i = i.next;
@@ -134,7 +134,7 @@ public class List {
 
         }
 
-        public int getValue() {
+        public String getValue() {
             return link.value;
         }
 
@@ -146,7 +146,7 @@ public class List {
 
     private class ListElement {
 
-        private int value;
+        private String value;
         private ListElement next;
     }
     private ListElement head;
