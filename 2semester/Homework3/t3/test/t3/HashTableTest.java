@@ -37,15 +37,7 @@ public class HashTableTest {
      */
     @Test
     public void testHashFun() {
-<<<<<<< HEAD
-        assertEquals(49, hashFun("1"));
     }
-
-=======
-        assertEquals(49, HashTable.hashFun("1"));
-    }
-    
->>>>>>> changed hash-table
     /**
      * Test of addHash method, of class HashTable.
      */
