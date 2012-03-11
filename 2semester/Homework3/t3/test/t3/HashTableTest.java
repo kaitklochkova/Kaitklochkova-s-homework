@@ -36,6 +36,9 @@ public class HashTableTest {
      * Test of hashFun method, of class HashTable.
      */
     @Test
+    public void testHashFun() {
+        assertEquals(49, hashFun("1"));
+    }
 
     /**
      * Test of addHash method, of class HashTable.
