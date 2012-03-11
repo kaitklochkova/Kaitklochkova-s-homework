@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package task3;
+package t3;
 
 /**
  *
  * @author Miracle
  */
-public class HashTable {
+class HashTable {
 
     /**
      * constructor of the hash-table
@@ -55,7 +55,8 @@ public class HashTable {
 
     /**
      * determine whether there is an element in the hash table
-     * @param str 
+     *
+     * @param str
      */
     void isElementInHashTable(String str) {
         for (int i = 0; i < 100; i++) {
@@ -63,4 +64,11 @@ public class HashTable {
         }
     }
     private List[] bucket;
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
 }
