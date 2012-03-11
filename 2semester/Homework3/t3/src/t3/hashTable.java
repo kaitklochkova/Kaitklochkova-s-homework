@@ -25,7 +25,7 @@ class HashTable {
      * @param str
      * @return hash-function for the string
      */
-    public int hashFun(String str) {
+    public static int hashFun(String str) {
         int tempResult = 0;
         char[] tempStr = str.toCharArray();
         for (int i = 0; i < tempStr.length; i++) {
@@ -58,7 +58,7 @@ class HashTable {
      *
      * @param str
      */
-    void boolean isElementInHashTable(String str) {
+    boolean isElementInHashTable(String str) {
         return bucket[hashFun(str)].isElementInList(str);       
     }
     
@@ -67,5 +67,7 @@ class HashTable {
     /**
      * @param args the command line arguments
      */
-
+    public static void main(String[] args) {
+        System.out.format("%d \n", hashFun("1"));// TODO code application logic here
+    }
 }
