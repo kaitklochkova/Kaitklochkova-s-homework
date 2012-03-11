@@ -68,6 +68,6 @@ class HashTable {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.format("%d \n", hashFun("1"));// TODO code application logic here
+        // TODO code application logic here
     }
 }

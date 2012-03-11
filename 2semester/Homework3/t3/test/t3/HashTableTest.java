@@ -37,20 +37,23 @@ public class HashTableTest {
      */
     @Test
     public void testHashFun() {
+<<<<<<< HEAD
         assertEquals(49, hashFun("1"));
     }
 
+=======
+        assertEquals(49, HashTable.hashFun("1"));
+    }
+    
+>>>>>>> changed hash-table
     /**
      * Test of addHash method, of class HashTable.
      */
     @Test
     public void testAddHash() {
-        System.out.println("addHash");
-        String str = "";
-        HashTable instance = new HashTable();
-        instance.addHash(str);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        HashTable hashTable = new HashTable();
+        hashTable.addHash("1");
+        //assertTrue(hashTable.isElementInHashTable("1"));
     }
 
     /**
@@ -58,11 +61,7 @@ public class HashTableTest {
      */
     @Test
     public void testClearHash() {
-        System.out.println("clearHash");
-        HashTable instance = new HashTable();
-        instance.clearHash();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -70,13 +69,6 @@ public class HashTableTest {
      */
     @Test
     public void testIsElementInHashTable() {
-        System.out.println("isElementInHashTable");
-        String str = "";
-        HashTable instance = new HashTable();
-        boolean expResult = false;
-        boolean result = instance.isElementInHashTable(str);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 }
