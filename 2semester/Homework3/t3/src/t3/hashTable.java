@@ -47,7 +47,7 @@ class HashTable {
     /**
      * del hash-table
      */
-    void delHash() {
+    void clearHash() {
         for (int i = 0; i < 100; i++) {
             bucket[i].clear();
         }
@@ -58,17 +58,14 @@ class HashTable {
      *
      * @param str
      */
-    void isElementInHashTable(String str) {
-        for (int i = 0; i < 100; i++) {
-            bucket[i].isElementInList(str);
-        }
+    void boolean isElementInHashTable(String str) {
+        return bucket[hashFun(str)].isElementInList(str);       
     }
+    
     private List[] bucket;
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+
 }
