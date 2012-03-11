@@ -14,6 +14,7 @@ class HashTable {
      * constructor of the hash-table
      */
     HashTable() {
+        bucket = new List[100];
         for (int i = 0; i < 100; i++) {
             bucket[i] = new List();
         }

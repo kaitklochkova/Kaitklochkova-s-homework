@@ -45,7 +45,7 @@ public class HashTableTest {
     public void testAddHash() {
         HashTable hashTable = new HashTable();
         hashTable.addHash("1");
-        //assertTrue(hashTable.isElementInHashTable("1"));
+        assertTrue(hashTable.isElementInHashTable("1"));
     }
 
     /**
@@ -53,14 +53,31 @@ public class HashTableTest {
      */
     @Test
     public void testClearHash() {
-        
+        HashTable hashTable = new HashTable();
+        hashTable.addHash("1");
+        hashTable.clearHash();
+        assertFalse(hashTable.isElementInHashTable("1"));
     }
 
     /**
      * Test of isElementInHashTable method, of class HashTable.
      */
     @Test
-    public void testIsElementInHashTable() {
-        
+    public void testIsElementInHashTableInEmptyHash() {
+        HashTable hashTable = new HashTable();
+        assertFalse(hashTable.isElementInHashTable("1"));
     }
+    
+    /**
+     * Test of isElementInHashTable method, of class HashTable.
+     */
+    @Test
+    public void testIsElementInHashTable() {
+        HashTable hashTable = new HashTable();
+        hashTable.addHash("1");
+        hashTable.addHash("2");
+        hashTable.addHash("1");
+        assertTrue(hashTable.isElementInHashTable("1"));
+    }
+
 }
