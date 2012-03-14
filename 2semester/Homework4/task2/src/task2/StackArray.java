@@ -17,7 +17,7 @@ class StackArray {
 
     public boolean push(int valueForAdd) {
         if (count < 1000) {
-            array[count - 1] = valueForAdd;
+            array[count] = valueForAdd;
             count++;
             return true;
         } else {
