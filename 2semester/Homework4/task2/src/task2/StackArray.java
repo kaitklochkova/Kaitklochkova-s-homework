@@ -17,7 +17,8 @@ class StackArray {
 
     public boolean push(int valueForAdd) {
         if (count < 1000) {
-            array[count] = valueForAdd;
+            array[count - 1] = valueForAdd;
+            count++;
             return true;
         } else {
             return false;
@@ -29,7 +30,7 @@ class StackArray {
     }
 
     public void pop() {
-        array[count] = 0;
+        array[count - 1] = 0;
         count--;
     }
     private int[] array;
