@@ -25,6 +25,14 @@ class StackArray {
         }
     }
 
+    public boolean isEmpty() {
+        if (count == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     public int top() {
         return array[count - 1];
     }
