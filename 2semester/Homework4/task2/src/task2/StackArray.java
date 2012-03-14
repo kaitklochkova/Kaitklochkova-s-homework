@@ -25,11 +25,12 @@ class StackArray {
     }
 
     public int top() {
-        return array[array.length];
+        return array[count];
     }
 
     public void pop() {
-        array[array.length] = 0;
+        array[count] = 0;
+        count--;
     }
     private int[] array;
     private int count;
