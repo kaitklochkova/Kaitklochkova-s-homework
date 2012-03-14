@@ -10,20 +10,16 @@ package task2;
  */
 class StackArray{
     StackArray() {
-        for (int i = 0; i < 1000; i++)
-            array[i] = 0;
+        int[] array = new int[1000];
     }
     public void push(int valueForAdd) {
-        for (int i = array.length; i >=0; i--)
-            array[i + 1] = array[i];
-        array[0] = valueForAdd;
+        array[array.length] = valueForAdd;
     }
     public int top() {
-        return array[0];
+        return array[array.length];
     }
     public void pop() {
-        for (int i = 0; i < array.length; i++)
-            array[i] = array[i + 1];
+            array[array.length] = 0;
     }
     private int[] array;
 }
