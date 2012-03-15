@@ -8,9 +8,11 @@ package task2;
  *
  * @author Miracle
  */
-interface StackCalc {
+interface Stack {
         void push(int val);
-        int top() throws Exception;
+        int pop();
+        int top();
+        boolean isEmpty();
     }
 
 public class StackCalculate {

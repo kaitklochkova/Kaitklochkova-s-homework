@@ -8,21 +8,16 @@ package task2;
  *
  * @author Miracle
  */
-class StackArray {
+class StackArray implements Stack {
 
     StackArray() {
         int[] array = new int[1000];
         count = 0;
     }
 
-    public boolean push(int valueForAdd) {
-        if (count < 1000) {
+    public void push(int valueForAdd) {
             array[count] = valueForAdd;
             count++;
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public boolean isEmpty() {

@@ -8,7 +8,7 @@ package task2;
  *
  * @author Miracle
  */
-public class StackList {
+public class StackList implements Stack{
     
     public void push(int valueForAdd) {
         StackElement temp = new StackElement(valueForAdd, head);
