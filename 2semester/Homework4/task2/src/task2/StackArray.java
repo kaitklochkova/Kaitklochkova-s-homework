@@ -26,11 +26,7 @@ class StackArray {
     }
 
     public boolean isEmpty() {
-        if (count == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return count == 0;
     }
     
     public int top() {

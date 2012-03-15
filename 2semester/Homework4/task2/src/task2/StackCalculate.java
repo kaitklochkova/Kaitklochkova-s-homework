@@ -8,28 +8,14 @@ package task2;
  *
  * @author Miracle
  */
-public class StackCalculate {
-
-    interface StackCalc {
-        // Добавить число в стек.
-
+interface StackCalc {
         void push(int val);
-        // Сложить.
-
-        int add() throws Exception;
-        // Вычесть.
-
-        int sub() throws Exception;
-        // Умножить.
-
-        int mul() throws Exception;
-        // Разделить.
-
-        int div() throws Exception;
-        // Показать вершину стека.
-
         int top() throws Exception;
     }
+
+public class StackCalculate {
+
+    
 
     /**
      * @param args the command line arguments
