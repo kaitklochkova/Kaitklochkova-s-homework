@@ -47,7 +47,26 @@ public class HashTableTest {
         hashTable.addHash("1");
         assertTrue(hashTable.isElementInHashTable("1"));
     }
+    /**
+     * Test of delHash method, of class HashTable.
+     */
+    @Test
+    public void testDelEmptyHash() {
+        HashTable hashTable = new HashTable();
+        assertEquals(-1, hashTable.delHash("1"));
+    }
 
+    /**
+     * Test of delHash method, of class HashTable.
+     */
+    @Test
+    public void testDelHash() {
+        HashTable hashTable = new HashTable();
+        hashTable.addHash("1");
+        hashTable.delHash("1");
+        assertFalse(hashTable.isElementInHashTable("1"));
+    }
+    
     /**
      * Test of clearHash method, of class HashTable.
      */

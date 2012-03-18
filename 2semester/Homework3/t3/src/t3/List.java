@@ -39,34 +39,6 @@ public class List {
         count++;
     }
 
-   /*public void add(String valueForAdd) {
-        ListElement i = head;
-        if (head == null) {
-            addToHead(valueForAdd);
-        } else {
-            if (i.value > valueForAdd) {
-                addToHead(valueForAdd);
-            } else {
-                ListElement newEl = new ListElement();
-                newEl.value = valueForAdd;
-                while (i.next != null) {
-                    if (i.next.value <= valueForAdd) {
-                        i = i.next;
-                    } else {
-                        newEl.next = i.next;
-                        i.next = newEl;
-                        break;
-                    }
-                }
-                if (i.next == null) {
-                    newEl.next = null;
-                    i.next = newEl;
-                }
-            }
-        }
-        count++;
-    }
-*/
     public void clear() {
         head = null;
         count = 0;
