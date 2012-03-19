@@ -56,7 +56,7 @@ class HashTable {
      * @param str
      */
     public boolean isElementInHashTable(String str) {
-        return bucket[hashFun(str)].isElementInList(str);       
+        return bucket[hashFun(str) % count].isElementInList(str);       
     }
     
     /**

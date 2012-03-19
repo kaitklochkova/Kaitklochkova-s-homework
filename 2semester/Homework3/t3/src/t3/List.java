@@ -9,6 +9,7 @@ package t3;
  * @author Miracle
  */
 public class List {
+
     public List() {
         head = null;
         count = 0;
@@ -50,9 +51,14 @@ public class List {
         } else {
             ListElement i = head;
             while (i.value.equals(valueForDel)) {
-                head = i.next;
-                count--;
-                i = head;
+                if (head.next != null) {
+                    head = i.next;
+                    count--;
+                    i = head;
+                } else {
+                    head = null;
+                    break;
+                }
             }
             while (i.next != null) {
                 if (i.next.value.equals(valueForDel)) {
