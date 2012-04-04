@@ -8,59 +8,64 @@ package task2;
  *
  * @author Miracle
  */
-public class StackList implements StackInterface{
-    
+public class StackList implements StackInterface {
+
     /**
      * push value to the stack
      *
      * @param value value, which you want to push
      */
-    @Override public void push(int valueForAdd) {
+    @Override
+    public void push(int valueForAdd) {
         StackElement temp = new StackElement(valueForAdd, head);
         head = temp;
     }
-    
+
     /**
      * pop an element from the stack
-     * 
+     *
      * @return value of the top element
      */
-    @Override public int pop() {
-        if (!isEmpty()) {
-            int answer = head.value;
-            head = head.next;
-            return answer;
-        } else {
-            return -1;
+    @Override
+    public int pop() throws EmptyStack {
+        if (isEmpty()) {
+            throw new EmptyStack();
         }
+        int answer = head.value;
+        head = head.next;
+        return answer;
+
     }
-    
+
     /**
      * to return value of the top element
      *
      * @return value of the top element
      */
-    @Override public int top() {
+    @Override
+    public int top() {
         if (!isEmpty()) {
             return head.value;
         } else {
             return -1;
         }
     }
-    
+
     /**
      * checks that the stack is empty or not
      *
      * @return true if stack is empty else false
      */
-    @Override public boolean isEmpty() {
+    @Override
+    public boolean isEmpty() {
         return head == null;
     }
-    
+
     /**
      * element of the stack
      */
     private class StackElement {
+
         public StackElement(int valueForAdd, StackElement next) {
             this.value = valueForAdd;
             this.next = next;

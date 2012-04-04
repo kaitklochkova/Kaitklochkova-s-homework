@@ -34,10 +34,14 @@ class StackArray implements StackInterface {
      * 
      * @return value of the top element
      */
-    @Override 
-    public int pop() {
+    
+    @Override
+    public int pop() throws EmptyStack {
+        if (isEmpty()) {
+            throw new EmptyStack();
+        }
         int result = array[count - 1];
-        array[count - 1] = 0;
+        array[--count] = 0;
         count--;
         return result;
     }

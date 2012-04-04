@@ -98,10 +98,21 @@ public class StackCalculate {
     /**
      * print the result of calculate
      */
-    public void printResult(StackInterface stack) {
+    public void printResult() {
         System.out.format("%d\n", stack.pop());
     }
 
+    /**
+     * pop an element from the stack and catch exception
+     */
+    private void pop() throws EmptyStack {
+        try {
+            stack.pop();
+        } catch (EmptyStack emptyStack) {
+            throw emptyStack;
+        }
+    }
+    
     /**
      * the stack of the calculator
      */
