@@ -19,6 +19,8 @@ interface StackInterface {
 
     /**
      * pop an element from the stack
+     * 
+     * @return value of the top element
      */
     int pop();
 
@@ -44,7 +46,7 @@ public class StackCalculate {
      *
      * @param stack
      */
-    StackCalculate () {
+    StackCalculate (StackInterface stack) {
        this.stack = stack;
     }
     
@@ -54,19 +56,38 @@ public class StackCalculate {
      * @return summ two values
      */
     public int add() {
-        return (stack.pop() + stack.pop());
+        stack.push(stack.pop() + stack.pop());
+        return stack.top();
     }
 
+    /**
+     * subtracts two values
+     *
+     * @return difference two values
+     */
     int sub() {
-        return (stack.pop() - stack.pop());
+        stack.push(stack.pop() - stack.pop());
+        return stack.top();
     }
 
+    /**
+     * multiplate two values
+     *
+     * @return product two values
+     */
     int mul() {
-        return (stack.pop() * stack.pop());
+        stack.push(stack.pop() * stack.pop());
+        return stack.top();
     }
 
+    /**
+     * divides two values
+     *
+     * @return quotient two values
+     */
     int div() {
-        return (stack.pop() / stack.pop());
+        stack.push(stack.pop() / stack.pop());
+        return stack.top();
     }
     
     void printResult(StackInterface stack) {
