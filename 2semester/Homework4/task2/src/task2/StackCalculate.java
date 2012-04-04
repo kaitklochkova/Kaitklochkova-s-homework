@@ -65,7 +65,7 @@ public class StackCalculate {
      *
      * @return difference two values
      */
-    int sub() {
+    public int sub() {
         stack.push(stack.pop() - stack.pop());
         return stack.top();
     }
@@ -75,7 +75,7 @@ public class StackCalculate {
      *
      * @return product two values
      */
-    int mul() {
+    public int mul() {
         stack.push(stack.pop() * stack.pop());
         return stack.top();
     }
@@ -85,12 +85,20 @@ public class StackCalculate {
      *
      * @return quotient two values
      */
-    int div() {
+    public int div() {
         stack.push(stack.pop() / stack.pop());
         return stack.top();
     }
     
-    void printResult(StackInterface stack) {
+    public void addTwoElementsToStack(int a, int b) {
+        stack.push(a);
+        stack.push(b);
+    }
+    
+    /**
+     * print the result of calculate
+     */
+    public void printResult(StackInterface stack) {
         System.out.format("%d\n", stack.pop());
     }
 
