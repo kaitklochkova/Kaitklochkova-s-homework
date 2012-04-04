@@ -22,7 +22,7 @@ interface StackInterface {
      * 
      * @return value of the top element
      */
-    int pop();
+    int pop() throws EmptyStack;
 
     /**
      * to return value of the top element
@@ -55,7 +55,7 @@ public class StackCalculate {
      *
      * @return summ two values
      */
-    public int add() {
+    public int add() throws EmptyStack {
         stack.push(stack.pop() + stack.pop());
         return stack.top();
     }
@@ -65,7 +65,7 @@ public class StackCalculate {
      *
      * @return difference two values
      */
-    public int sub() {
+    public int sub() throws EmptyStack {
         stack.push(stack.pop() - stack.pop());
         return stack.top();
     }
@@ -75,7 +75,7 @@ public class StackCalculate {
      *
      * @return product two values
      */
-    public int mul() {
+    public int mul() throws EmptyStack {
         stack.push(stack.pop() * stack.pop());
         return stack.top();
     }
@@ -85,7 +85,7 @@ public class StackCalculate {
      *
      * @return quotient two values
      */
-    public int div() {
+    public int div() throws EmptyStack {
         stack.push(stack.pop() / stack.pop());
         return stack.top();
     }
@@ -98,14 +98,14 @@ public class StackCalculate {
     /**
      * print the result of calculate
      */
-    public void printResult() {
+    public void printResult() throws EmptyStack {
         System.out.format("%d\n", stack.pop());
     }
 
     /**
      * pop an element from the stack and catch exception
      */
-    private void pop() throws EmptyStack {
+    private void popElement() throws EmptyStack {
         try {
             stack.pop();
         } catch (EmptyStack emptyStack) {
@@ -117,4 +117,8 @@ public class StackCalculate {
      * the stack of the calculator
      */
     private StackInterface stack;
+
+    public static void main(String[] args) {
+    
+    }
 }

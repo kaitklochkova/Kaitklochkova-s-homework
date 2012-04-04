@@ -36,17 +36,17 @@ public class StackCalculateTest {
      * Test of add method, of class StackCalculator.
      */
     @Test
-    public void testAdd() {
+    public void testAdd() throws EmptyStack {
         StackCalculate calc = new StackCalculate(new StackList());
         calc.addTwoElementsToStack(2, 3);
-        assertEquals(calc.add(), 5);
+        assertEquals(calc.add(), 5, 0);
     }
     
     /**
      * Test of sub method, of class StackCalculator.
      */
     @Test
-    public void testSub() {
+    public void testSub() throws EmptyStack {
         StackCalculate calc = new StackCalculate(new StackList());
         calc.addTwoElementsToStack(3, 2);
         assertEquals(calc.sub(), -1);
@@ -56,7 +56,7 @@ public class StackCalculateTest {
      * Test of mul method, of class StackCalculator.
      */
     @Test
-    public void testMul() {
+    public void testMul() throws EmptyStack {
         StackCalculate calc = new StackCalculate(new StackList());
         calc.addTwoElementsToStack(3, 2);
         assertEquals(calc.mul(), 6);
@@ -66,7 +66,7 @@ public class StackCalculateTest {
      * Test of div method, of class StackCalculator.
      */
     @Test
-    public void testDiv() {
+    public void testDiv() throws EmptyStack {
         StackCalculate calc = new StackCalculate(new StackList());
         calc.addTwoElementsToStack(3, 6);
         assertEquals(calc.div(), 2);

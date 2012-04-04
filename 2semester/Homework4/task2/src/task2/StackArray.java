@@ -42,7 +42,6 @@ class StackArray implements StackInterface {
         }
         int result = array[count - 1];
         array[--count] = 0;
-        count--;
         return result;
     }
     

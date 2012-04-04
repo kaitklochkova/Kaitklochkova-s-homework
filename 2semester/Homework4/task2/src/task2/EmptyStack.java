@@ -8,6 +8,6 @@ package task2;
  *
  * @author Miracle
  */
-public class EmptyStack {
+public class EmptyStack extends Exception {
     
 }
