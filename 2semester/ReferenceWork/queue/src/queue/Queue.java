@@ -8,7 +8,7 @@ package queue;
  *
  * @author Miracle
  */
-public class Queue {
+public class Queue <Type> {
 
     Queue() {
         head = null;
@@ -17,7 +17,7 @@ public class Queue {
         count = 0;
     }
 
-    public void enqueue(int valueForAdd, int priorityValue) {
+    public void enqueue(Type valueForAdd, int priorityValue) {
         QueueElement newEl = new QueueElement();
         newEl.next = head;
         newEl.value = valueForAdd;
@@ -52,7 +52,7 @@ public class Queue {
 
     private class QueueElement {
 
-        private int value;
+        private Type value;
         private int priority;
         private QueueElement next;
     }
