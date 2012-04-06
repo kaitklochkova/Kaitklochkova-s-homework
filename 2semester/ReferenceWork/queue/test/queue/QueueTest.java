@@ -47,8 +47,7 @@ public class QueueTest {
      */
     @Test
     public void testEnqueue() throws EmptyQueue {
-        Queue<Integer> queue = new Queue <Integer>();
-        
+        Queue<Integer> queue = new Queue <Integer>();     
         queue.enqueue(4, 3);
         queue.enqueue(5, 1);
         int result = queue.dequeue();
