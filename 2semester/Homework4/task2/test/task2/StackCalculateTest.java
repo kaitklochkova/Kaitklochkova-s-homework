@@ -39,7 +39,7 @@ public class StackCalculateTest {
     public void testAdd() throws EmptyStack {
         StackCalculate calc = new StackCalculate(new StackList());
         calc.addTwoElementsToStack(2, 3);
-        assertEquals(calc.add(), 5, 0);
+        assertEquals(calc.add(), 5);
     }
     
     /**
