@@ -34,6 +34,8 @@ public class QueueTest {
 
     @Test
     public void testEnqueue() {
-        Queue<int> queue = new Queue <int>();
+        Queue<Integer> queue = new Queue <Integer>();
+        queue.enqueue(4, 1);
+        assertEquals(1, queue.getCount());
     }
 }

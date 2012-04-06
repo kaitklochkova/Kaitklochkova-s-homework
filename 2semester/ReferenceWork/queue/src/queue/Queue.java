@@ -50,6 +50,10 @@ public class Queue <Type> {
         }
     }
 
+    public int getCount() {
+        return count;
+    }
+    
     private class QueueElement {
 
         private Type value;
