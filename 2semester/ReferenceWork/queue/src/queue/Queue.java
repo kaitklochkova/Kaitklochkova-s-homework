@@ -8,7 +8,7 @@ package queue;
  *
  * @author Miracle
  */
-public class Queue <Type> {
+public class Queue<Type> {
 
     /**
      * constructor for list
@@ -71,9 +71,9 @@ public class Queue <Type> {
     public int getCount() {
         return count;
     }
-    
-        /**
-     * pop an element from the stack and catch exception
+
+    /**
+     * dequeue and catch exception
      */
     private void dequeueElement() throws EmptyQueue {
         try {
@@ -82,7 +82,7 @@ public class Queue <Type> {
             throw emptyQueue;
         }
     }
-    
+
     private class QueueElement {
 
         /**
