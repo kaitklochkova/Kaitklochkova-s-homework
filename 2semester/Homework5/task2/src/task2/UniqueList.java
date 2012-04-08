@@ -15,6 +15,7 @@ public class UniqueList extends List {
      */
     UniqueList() {
     }
+
     /**
      * add value to the list in a single copy
      *

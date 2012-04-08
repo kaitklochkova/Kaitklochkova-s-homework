@@ -9,5 +9,4 @@ package task2;
  * @author Miracle
  */
 public class IsInList extends Exception {
-    
 }

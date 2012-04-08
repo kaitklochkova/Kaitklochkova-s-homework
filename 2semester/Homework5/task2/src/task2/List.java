@@ -81,9 +81,9 @@ public class List {
                     newEl.next = null;
                     i.next = newEl;
                 }
+                count++;
             }
         }
-        count++;
     }
 
     /*
