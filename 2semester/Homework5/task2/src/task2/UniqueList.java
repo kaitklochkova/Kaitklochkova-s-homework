@@ -9,7 +9,12 @@ package task2;
  * @author Miracle
  */
 public class UniqueList extends List {
-    
+
+    /**
+     * constructor for UniqueList
+     */
+    UniqueList() {
+    }
     /**
      * add value to the list in a single copy
      *

@@ -34,6 +34,17 @@ public class UniqueListTest {
 
     @Test
     public void testUniqueAdd() throws IsInList {
-        
+        UniqueList uniqueList = new UniqueList();
+        uniqueList.uniqueAdd(4);
+        assertEquals(4, uniqueList.getIterator().getValue());
+    }
+    
+    @Test
+    public void testUniqueAddTwoSameElemnts() throws IsInList {
+        UniqueList uniqueList = new UniqueList();
+        uniqueList.uniqueAdd(4);
+        uniqueList.uniqueAdd(4);
+       // assertEquals(4, uniqueList.getIterator().getValue());
+        assertEquals(1, uniqueList.getCount());
     }
 }
