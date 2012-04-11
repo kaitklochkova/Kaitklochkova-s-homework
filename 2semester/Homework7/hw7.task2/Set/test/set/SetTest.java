@@ -169,8 +169,8 @@ public class SetTest {
             set2.add(i);
         }
         Set<Integer> set = set1.cross(set2);
-        //for (int i = 2; i < 6; i++) {
-            assertTrue(set.isElementInSet(6));
-        //}
+        for (int i = 2; i < 4; i++) {
+            assertTrue(set.isElementInSet(i));
+        }
     }
 }

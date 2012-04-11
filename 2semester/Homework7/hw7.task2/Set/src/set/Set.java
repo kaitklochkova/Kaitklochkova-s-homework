@@ -102,6 +102,7 @@ public class Set<Type> {
                 }
                 i2 = i2.next;
             }
+            i2 = set.head;
             i1 = i1.next;
         }
         return newSet;
