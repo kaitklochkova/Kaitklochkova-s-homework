@@ -154,10 +154,10 @@ public class SetTest {
             assertTrue(set.isElementInSet(i));
         }
     }
+    
     /*
      * Test of cross method, of class Set
      */
-
     @Test
     public void testCross() throws NotInSet, IsInSet {
         Set<Integer> set1 = new Set<Integer>();
