@@ -78,14 +78,17 @@ public class Set<Type> {
         Set newSet = new Set();
         SetElement i = head;
         newSet.add(i.value);
-        while (i.next != null) {
+        while (i.next != null) {           
             newSet.add(i.next.value);
             i = i.next;
         }
         i = set.head;
         newSet.add(i.value);
         while (i.next != null) {
-            newSet.add(i.next.value);
+            try {
+                newSet.add(i.next.value);
+            } catch (IsInSet isInSet) {
+            }
             i = i.next;
         }
         return newSet;

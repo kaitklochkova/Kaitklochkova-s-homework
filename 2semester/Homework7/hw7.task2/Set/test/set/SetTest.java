@@ -155,6 +155,25 @@ public class SetTest {
         }
     }
     
+     /*
+     * Test of sum method, of class Set
+     */
+    @Test
+    public void testSumCrossSet() throws NotInSet, IsInSet {
+        Set<Integer> set1 = new Set<Integer>();
+        Set<Integer> set2 = new Set<Integer>();
+        for (int i = 0; i < 4; i++) {
+            set1.add(i);
+        }
+        for (int i = 2; i < 6; i++) {
+            set2.add(i);
+        }
+        Set<Integer> set = set1.sum(set2);
+        for (int i = 0; i < 6; i++) {
+            assertTrue(set.isElementInSet(i));
+        }
+    }
+    
     /*
      * Test of cross method, of class Set
      */
@@ -171,6 +190,25 @@ public class SetTest {
         Set<Integer> set = set1.cross(set2);
         for (int i = 2; i < 4; i++) {
             assertTrue(set.isElementInSet(i));
+        }
+    }
+    
+    /*
+     * Test of cross method, of class Set
+     */
+    @Test
+    public void testCrossNotCrossSets() throws NotInSet, IsInSet {
+        Set<Integer> set1 = new Set<Integer>();
+        Set<Integer> set2 = new Set<Integer>();
+        for (int i = 0; i < 2; i++) {
+            set1.add(i);
+        }
+        for (int i = 3; i < 6; i++) {
+            set2.add(i);
+        }
+        Set<Integer> set = set1.cross(set2);
+        for (int i = 0; i < 6; i++) {
+            assertFalse(set.isElementInSet(i));
         }
     }
 }
