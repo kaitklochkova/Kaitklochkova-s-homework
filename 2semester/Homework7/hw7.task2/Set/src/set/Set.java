@@ -74,7 +74,7 @@ public class Set<Type> {
         return false;
     }
 
-    public Set sum(Set set) throws IsInSet {
+    public Set<Type> sum(Set<Type> set) throws IsInSet {
         Set<Type> newSet = new Set<Type>();
         SetElement i = head;
         newSet.add(i.value);
@@ -94,7 +94,7 @@ public class Set<Type> {
         return newSet;
     }
 
-    public Set cross(Set set) throws IsInSet {
+    public Set<Type> cross(Set<Type> set) throws IsInSet {
         Set<Type> newSet = new Set<Type>();
         SetElement i1 = head;
         SetElement i2 = set.head;
