@@ -75,10 +75,10 @@ public class Set<Type> {
     }
 
     public Set sum(Set set) throws IsInSet {
-        Set newSet = new Set();
+        Set<Type> newSet = new Set<Type>();
         SetElement i = head;
         newSet.add(i.value);
-        while (i.next != null) {           
+        while (i.next != null) {
             newSet.add(i.next.value);
             i = i.next;
         }
@@ -95,7 +95,7 @@ public class Set<Type> {
     }
 
     public Set cross(Set set) throws IsInSet {
-        Set newSet = new Set();
+        Set<Type> newSet = new Set<Type>();
         SetElement i1 = head;
         SetElement i2 = set.head;
         while (i1 != null) {

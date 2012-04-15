@@ -8,7 +8,8 @@ package stack;
  *
  * @author Miracle
  */
-public class Stack <Type> {
+public class Stack<Type> {
+
     /**
      * push value to the stack
      *
@@ -28,9 +29,9 @@ public class Stack <Type> {
         if (isEmpty()) {
             throw new EmptyStack();
         } else {
-        Type answer = head.value;
-        head = head.next;
-        return answer;
+            Type answer = head.value;
+            head = head.next;
+            return answer;
         }
     }
 
@@ -41,7 +42,7 @@ public class Stack <Type> {
      */
     public Type top() throws EmptyStack {
         if (isEmpty()) {
-            throw new EmptyStack();           
+            throw new EmptyStack();
         } else {
             return head.value;
         }
@@ -72,6 +73,7 @@ public class Stack <Type> {
      * the head of the stack
      */
     private StackElement head;
+
     /**
      * @param args the command line arguments
      */
