@@ -4,9 +4,11 @@
  */
 package clock;
 
+import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,10 +21,13 @@ public class ClockJFrame extends javax.swing.JFrame {
      */
     public ClockJFrame() {
         initComponents();
+        Timer timer = new Timer();
+        MyClock clock = new MyClock();
+        timer.scheduleAtFixedRate(clock, 0, 1000);
     }
 
     class MyClock extends TimerTask {
-
+        @Override
         public void run() {
             SimpleDateFormat formatter2 = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
             String stDate = formatter2.format(new Date());
@@ -42,6 +47,10 @@ public class ClockJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(200, 50));
+        setMinimumSize(new java.awt.Dimension(200, 50));
+        setPreferredSize(new java.awt.Dimension(200, 50));
+        setSize(new java.awt.Dimension(200, 50));
 
         jLabel1.setText("jLabel1");
 
@@ -50,16 +59,14 @@ public class ClockJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(78, 78, 78)
-                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 221, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 134, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(102, 102, 102)
-                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 63, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 24, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -100,7 +107,7 @@ public class ClockJFrame extends javax.swing.JFrame {
          * Create and display the form
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
-
+            @Override
             public void run() {
                 new ClockJFrame().setVisible(true);
             }
