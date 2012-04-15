@@ -23,18 +23,17 @@ class StackArray implements StackInterface {
      *
      * @param value value, which you want to push
      */
-    @Override 
+    @Override
     public void push(int valueForAdd) {
-            array[count] = valueForAdd;
-            count++;
+        array[count] = valueForAdd;
+        count++;
     }
-      
+
     /**
      * pop an element from the stack
-     * 
+     *
      * @return value of the top element
      */
-    
     @Override
     public int pop() throws EmptyStack {
         if (isEmpty()) {
@@ -44,32 +43,30 @@ class StackArray implements StackInterface {
         array[--count] = 0;
         return result;
     }
-    
+
     /**
      * to return value of the top element
      *
      * @return value of the top element
      */
-    @Override 
+    @Override
     public int top() {
         return array[count - 1];
     }
-    
+
     /**
      * checks that the stack is empty or not
      *
      * @return true if stack is empty else false
      */
-    @Override 
+    @Override
     public boolean isEmpty() {
         return count == 0;
     }
-    
     /**
      * array of the stack
      */
     private int[] array;
-    
     /**
      * count of the elements of the stack
      */

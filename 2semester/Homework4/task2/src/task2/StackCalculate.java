@@ -9,7 +9,7 @@ package task2;
  * @author Miracle
  */
 interface StackInterface {
-    
+
     /**
      * push value to the stack
      *
@@ -19,7 +19,7 @@ interface StackInterface {
 
     /**
      * pop an element from the stack
-     * 
+     *
      * @return value of the top element
      */
     int pop() throws EmptyStack;
@@ -30,7 +30,7 @@ interface StackInterface {
      * @return value of the top element
      */
     int top();
-    
+
     /**
      * checks that the stack is empty or not
      *
@@ -46,10 +46,10 @@ public class StackCalculate {
      *
      * @param stack
      */
-    StackCalculate (StackInterface stack) {
-       this.stack = stack;
+    StackCalculate(StackInterface stack) {
+        this.stack = stack;
     }
-    
+
     /**
      * adds two values
      *
@@ -89,12 +89,12 @@ public class StackCalculate {
         stack.push(stack.pop() / stack.pop());
         return stack.top();
     }
-    
+
     public void addTwoElementsToStack(int a, int b) {
         stack.push(a);
         stack.push(b);
     }
-    
+
     /**
      * print the result of calculate
      */
@@ -112,13 +112,11 @@ public class StackCalculate {
             throw emptyStack;
         }
     }
-    
     /**
      * the stack of the calculator
      */
     private StackInterface stack;
 
     public static void main(String[] args) {
-    
     }
 }
