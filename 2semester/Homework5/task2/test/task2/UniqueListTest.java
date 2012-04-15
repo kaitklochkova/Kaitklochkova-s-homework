@@ -33,26 +33,26 @@ public class UniqueListTest {
     }
 
     /**
-     * Test of uniqueAdd method, of class UniqueList.
+     * Test of add method, of class UniqueList.
      */
     @Test
-    public void testUniqueAdd() throws IsInList {
+    public void testadd() throws IsInList {
         UniqueList uniqueList = new UniqueList();
-        uniqueList.uniqueAdd(4);
+        uniqueList.add(4);
         assertEquals(4, uniqueList.getIterator().getValue());
         assertEquals(uniqueList.getCount(), 1);
     }
 
     /**
-     * Test of uniqueAdd method, of class UniqueList.
+     * Test of add method, of class UniqueList.
      */
     @Test
-    public void testUniqueAddTwoSameElemnts() throws IsInList {
+    public void testaddTwoSameElemnts() throws IsInList {
         UniqueList uniqueList = new UniqueList();
-        uniqueList.uniqueAdd(4);
+        uniqueList.add(4);
         boolean throwed = false;
         try {
-            uniqueList.uniqueAdd(4);
+            uniqueList.add(4);
         } catch (IsInList isInList) {
             throwed = true;
         }
@@ -61,28 +61,28 @@ public class UniqueListTest {
     }
 
     /**
-     * Test of uniqueDel method, of class UniqueList.
+     * Test of del method, of class UniqueList.
      */
     @Test
-    public void testUniqueDel() throws IsInList, NotInList {
+    public void testdel() throws IsInList, NotInList {
         UniqueList uniqueList = new UniqueList();
-        uniqueList.uniqueAdd(4);
-        uniqueList.uniqueAdd(5);
-        uniqueList.uniqueDel(4);
+        uniqueList.add(4);
+        uniqueList.add(5);
+        uniqueList.del(4);
         assertEquals(uniqueList.getCount(), 1);
         assertEquals(5, uniqueList.getIterator().getValue());
     }
 
     /**
-     * Test of uniqueDel method, of class UniqueList.
+     * Test of del method, of class UniqueList.
      */
     @Test
-    public void testUniqueDelElementNotInList() throws IsInList, NotInList {
+    public void testdelElementNotInList() throws IsInList, NotInList {
         UniqueList uniqueList = new UniqueList();
-        uniqueList.uniqueAdd(4);
+        uniqueList.add(4);
         boolean throwed = false;
         try {
-            uniqueList.uniqueDel(5);
+            uniqueList.del(5);
         } catch (NotInList notInList) {
             throwed = true;
         }

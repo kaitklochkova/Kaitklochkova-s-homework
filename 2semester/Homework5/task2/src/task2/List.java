@@ -58,7 +58,7 @@ public class List {
      *
      * @param valueForAdd value, which you want to add
      */
-    public void add(int valueForAdd) {
+    public void add(int valueForAdd) throws IsInList {
         ListElement i = head;
         if (head == null) {
             addToHead(valueForAdd);
@@ -99,25 +99,20 @@ public class List {
      *
      * @param valueForDel value, which you want to del
      */
-    public int delEl(int valueForDel) {
-        if (head == null) {
-            return -1;
-        } else {
-            ListElement i = head;
-            while (i.value == valueForDel) {
-                head = i.next;
+    public void del(int valueForDel) throws NotInList {
+        ListElement i = head;
+        while (i.value == valueForDel) {
+            head = i.next;
+            count--;
+            i = head;
+        }
+        while (i.next != null) {
+            if (i.next.value == valueForDel) {
+                i.next = i.next.next;
                 count--;
-                i = head;
+            } else {
+                i = i.next;
             }
-            while (i.next != null) {
-                if (i.next.value == valueForDel) {
-                    i.next = i.next.next;
-                    count--;
-                } else {
-                    i = i.next;
-                }
-            }
-            return 0;
         }
     }
 

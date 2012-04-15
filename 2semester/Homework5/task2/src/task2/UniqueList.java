@@ -21,7 +21,8 @@ public class UniqueList extends List {
      *
      * @param valueForAdd value, which you want to add
      */
-    public void uniqueAdd(int valueForAdd) throws IsInList {
+    @Override
+    public void add(int valueForAdd) throws IsInList {
         if (isElementInList(valueForAdd)) {
             throw new IsInList();
         } else {
@@ -34,9 +35,10 @@ public class UniqueList extends List {
      *
      * @param valueForDel value, which you want to del
      */
-    public void uniqueDel(int valueForDel) throws NotInList {
+    @Override
+    public void del(int valueForDel) throws NotInList {
         if (isElementInList(valueForDel)) {
-            delEl(valueForDel);
+            del(valueForDel);
         } else {
             throw new NotInList();
         }

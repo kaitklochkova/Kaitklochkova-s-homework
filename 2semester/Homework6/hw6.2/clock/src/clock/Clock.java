@@ -4,16 +4,14 @@
  */
 package clock;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  *
  * @author Miracle
  */
 public class Clock {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+    
 }
