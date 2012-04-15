@@ -47,7 +47,7 @@ public class UniqueListTest {
      * Test of add method, of class UniqueList.
      */
     @Test
-    public void testaddTwoSameElemnts() throws IsInList {
+    public void testAddTwoSameElemnts() throws IsInList {
         UniqueList uniqueList = new UniqueList();
         uniqueList.add(4);
         boolean throwed = false;
@@ -61,10 +61,26 @@ public class UniqueListTest {
     }
 
     /**
+     * Test of add method, of class UniqueList.
+     */
+    @Test
+    public void testAddIsInList() throws IsInList {
+        UniqueList uniqueList = new UniqueList();
+        uniqueList.add(4);
+        boolean throwed = false;
+        try {
+            uniqueList.add(4);
+        } catch (IsInList isInList) {
+            throwed = true;
+        }
+        assertEquals(throwed, true);
+    }
+    
+    /**
      * Test of del method, of class UniqueList.
      */
     @Test
-    public void testdel() throws IsInList, NotInList {
+    public void testDel() throws IsInList, NotInList {
         UniqueList uniqueList = new UniqueList();
         uniqueList.add(4);
         uniqueList.add(5);
@@ -77,7 +93,7 @@ public class UniqueListTest {
      * Test of del method, of class UniqueList.
      */
     @Test
-    public void testdelElementNotInList() throws IsInList, NotInList {
+    public void testDelElementNotInList() throws IsInList, NotInList {
         UniqueList uniqueList = new UniqueList();
         uniqueList.add(4);
         boolean throwed = false;

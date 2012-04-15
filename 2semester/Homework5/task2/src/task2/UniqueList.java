@@ -26,7 +26,7 @@ public class UniqueList extends List {
         if (isElementInList(valueForAdd)) {
             throw new IsInList();
         } else {
-            add(valueForAdd);
+            super.add(valueForAdd);
         }
     }
 
@@ -38,7 +38,7 @@ public class UniqueList extends List {
     @Override
     public void del(int valueForDel) throws NotInList {
         if (isElementInList(valueForDel)) {
-            del(valueForDel);
+            super.del(valueForDel);
         } else {
             throw new NotInList();
         }
