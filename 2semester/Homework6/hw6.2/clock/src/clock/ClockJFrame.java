@@ -8,7 +8,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-import javax.swing.JFrame;
 
 /**
  *
@@ -47,11 +46,13 @@ public class ClockJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(200, 50));
-        setMinimumSize(new java.awt.Dimension(200, 50));
-        setPreferredSize(new java.awt.Dimension(200, 50));
-        setSize(new java.awt.Dimension(200, 50));
+        setMaximumSize(new java.awt.Dimension(500, 100));
+        setMinimumSize(new java.awt.Dimension(500, 100));
+        setPreferredSize(new java.awt.Dimension(500, 100));
+        setResizable(false);
+        setSize(new java.awt.Dimension(500, 100));
 
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 48)); // NOI18N
         jLabel1.setText("jLabel1");
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -59,14 +60,13 @@ public class ClockJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 134, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .add(20, 20, 20)
+                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 469, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 24, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+            .add(jLabel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
         );
 
         pack();
