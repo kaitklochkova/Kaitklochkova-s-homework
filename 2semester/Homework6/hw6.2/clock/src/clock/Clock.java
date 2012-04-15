@@ -11,7 +11,7 @@ import java.util.TimerTask;
  *
  * @author Miracle
  */
-public class Clock {
+public class Clock extends ClockJFrame {
 
     
 }

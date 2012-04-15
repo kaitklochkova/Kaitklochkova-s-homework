@@ -18,12 +18,28 @@ public class Main {
      */
     public static void main(String[] args) {
         Timer timer = new Timer();
+        MyClock clock = new MyClock();
+        timer.scheduleAtFixedRate(clock, 0, 1000);
+
+    }
+}
+
+public class Ex {
+
+    public static void main(String[] args) {
+        Timer timer = new Timer();
         int startTime = Integer.parseInt("10");
         int endTime = Integer.parseInt("20");
         for (int i = startTime; i <= endTime; i++) {
-            MyClock task = new MyClock();
+            MyTask task = new MyTask();
             timer.schedule(task, 1000);
         }
     }
 }
+
+class MyTask extends TimerTask {
+
+    public void run() {
+        System.out.println("hello");
+    }
 }
