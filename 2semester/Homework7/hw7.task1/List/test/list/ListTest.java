@@ -254,11 +254,23 @@ public class ListTest {
     }
     
     /**
-     * Test of GetIterator method, of class List.
+     * Test of GetCount method, of class List.
      */
     @Test
     public void testGetCountEmptyList() {
         List <Integer> list = new List<Integer>();
+        assertEquals(0, list.getCount());
+    }
+    
+     /**
+     * Test of GetIterator method, of class List.
+     */
+    @Test
+    public void testFor() {
+        List <Integer> list = new List<Integer>();
+        for (a : list) {
+            
+        }
         assertEquals(0, list.getCount());
     }
 }

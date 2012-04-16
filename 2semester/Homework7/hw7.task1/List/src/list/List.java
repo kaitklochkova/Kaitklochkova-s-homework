@@ -8,7 +8,7 @@ package list;
  *
  * @author Miracle
  */
-public class List <Type> {
+public class List <Type> implements Iterable<Type> {
     /**
      * constructor for list
      */
@@ -122,11 +122,11 @@ public class List <Type> {
     /*
      * @return iterator
      */
-    ListIterator getIterator() {
+    ListIterator iterator() {
         return new ListIterator();
     }
 
-    public class ListIterator {
+    public class ListIterator implements Iterator<Type> {
 
         /*
          * constructor for iterator
@@ -140,23 +140,19 @@ public class List <Type> {
          *
          * @return true if element points to not null else false
          */
-        public boolean isGood() {
+        @Override
+        public boolean hasNext() {
             return link != null;
 
         }
 
         /*
-         * @return value of element pointed to by the iterator
-         */
-        public Type getValue() {
-            return link.value;
-        }
-
-        /*
          * @return next of element pointed to by the iterator
          */
-        public void next() {
+        @Override
+        public Type next() {
             link = link.next;
+            return link.value;
         }
         /*
          * link to the element of list
