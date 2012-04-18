@@ -12,12 +12,13 @@ public class HashTable {
 /**
      * constructor of the hash-table
      */
-    public HashTable() {
+    public HashTable(HashFunInterface hashFun) {
         count = 100;
         bucket = new List[count];
         for (int i = 0; i < count; i++) {
             bucket[i] = new List();
         }
+        this.hashFun = hashFun;
     }
 
     /**
@@ -26,7 +27,7 @@ public class HashTable {
      * @param str
      */
     public void addHash(String str) {
-        int index = hashFun(str) % count;
+        int index = hashFun.hashFun(str) % count;
         bucket[index].addToTail(str);
     }
 
@@ -36,7 +37,7 @@ public class HashTable {
      * @param str
      */
     public int delHash(String str) {
-        int index = hashFun(str) % count;
+        int index = hashFun.hashFun(str) % count;
         return bucket[index].delEl(str);
     }
     
@@ -55,27 +56,12 @@ public class HashTable {
      * @param str
      */
     public boolean isElementInHashTable(String str) {
-        return bucket[hashFun(str) % count].isElementInList(str);       
+        return bucket[hashFun.hashFun(str) % count].isElementInList(str);       
     }
-    
-    /**
-     * hash-function
-     *
-     * @param str
-     * @return hash-function for the string
-     */
-    private static int hashFun(String str) {
-        int tempResult = 0;
-        char[] tempStr = str.toCharArray();
-        for (int i = 0; i < tempStr.length; i++) {
-            tempResult = tempResult * 101 + tempStr[i];
-        }
-        return tempResult;
-    }
-
     
     private List[] bucket;
     private int count;
+    HashFunInterface hashFun;
     /**
      * @param args the command line arguments
      */
