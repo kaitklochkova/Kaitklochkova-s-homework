@@ -181,7 +181,7 @@ public class ListTest {
     @Test
     public void testGetIteratorOfEmptyList() {
         List <Integer> list = new List<Integer>();
-        assertFalse(list.getIterator().isGood());
+        assertFalse(list.iterator().hasNext());
     }
 
     /**
