@@ -15,6 +15,8 @@ public class CalculateJFrame extends javax.swing.JFrame {
      */
     public CalculateJFrame() {
         initComponents();
+        currentNumber = 0;
+        factor = 1;
     }
 
     /**
@@ -26,7 +28,6 @@ public class CalculateJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -43,50 +44,124 @@ public class CalculateJFrame extends javax.swing.JFrame {
         jButtonPlus = new javax.swing.JButton();
         jButtonMul = new javax.swing.JButton();
         jButtonDiv = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setText("jTextField1");
-
         jButton1.setText("1");
         jButton1.setSize(new java.awt.Dimension(50, 50));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setText("2");
         jButton2.setSize(new java.awt.Dimension(50, 50));
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jButton3.setText("3");
         jButton3.setSize(new java.awt.Dimension(50, 50));
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jButton4.setText("4");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jButton5.setText("5");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         jButton6.setText("6");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         jButton7.setText("7");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
 
         jButton8.setText("8");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
 
         jButton9.setText("9");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
 
         jButton0.setText("0");
+        jButton0.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton0MouseClicked(evt);
+            }
+        });
 
         jButtonPoint.setText(".");
+        jButtonPoint.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonPointMouseClicked(evt);
+            }
+        });
 
         jButtonEqually.setText("=");
+        jButtonEqually.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonEquallyMouseClicked(evt);
+            }
+        });
 
         jButtonMinus.setText("-");
-        jButtonMinus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMinusActionPerformed(evt);
+        jButtonMinus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonMinusMouseClicked(evt);
             }
         });
 
         jButtonPlus.setText("+");
+        jButtonPlus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonPlusMouseClicked(evt);
+            }
+        });
 
         jButtonMul.setText("*");
+        jButtonMul.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonMulMouseClicked(evt);
+            }
+        });
 
         jButtonDiv.setText("/");
+        jButtonDiv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonDivMouseClicked(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,17 +187,17 @@ public class CalculateJFrame extends javax.swing.JFrame {
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(layout.createSequentialGroup()
-                                        .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(jButton3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                        .add(jButtonPlus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 71, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                    .add(layout.createSequentialGroup()
                                         .add(jButton5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 71, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                         .add(jButton6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 71, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                        .add(jButtonMinus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 71, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                                        .add(jButtonMinus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 71, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(layout.createSequentialGroup()
+                                        .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(jButton3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                        .add(jButtonPlus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 71, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                             .add(layout.createSequentialGroup()
                                 .add(jButton0, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 71, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
@@ -132,16 +207,16 @@ public class CalculateJFrame extends javax.swing.JFrame {
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                 .add(jButtonDiv, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 71, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                     .add(layout.createSequentialGroup()
-                        .add(38, 38, 38)
-                        .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 307, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                        .add(56, 56, 56)
+                        .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 303, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(12, 12, 12)
+                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 28, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jButton1)
                     .add(jButton2)
@@ -171,9 +246,107 @@ public class CalculateJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonMinusActionPerformed
+    private void printTheNumber() {
+        String result = Double.toString(currentNumber);
+        jLabel1.setText(result);
+    }
+
+    private void enterTheNumber(int number) {
+        currentNumber = (currentNumber * 10 + number) * factor;
+        if (factor != 1) {
+            factor = factor / 10;
+        }
+        printTheNumber();
+    }
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        enterTheNumber(1);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        enterTheNumber(2);
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        enterTheNumber(3);
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        enterTheNumber(4);
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        enterTheNumber(5);
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        enterTheNumber(6);
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        enterTheNumber(7);
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        enterTheNumber(8);
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        enterTheNumber(9);
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton0MouseClicked
+        enterTheNumber(0);
+    }//GEN-LAST:event_jButton0MouseClicked
+
+    private void jButtonPointMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonPointMouseClicked
+        factor = 0.1;
+    }//GEN-LAST:event_jButtonPointMouseClicked
+
+    private void clickOnTheSign(char thisSign) {
+        firstNumber = currentNumber;
+        currentNumber = 0;
+        sign = thisSign;
+        factor = 1;
+    }
+
+    private void jButtonPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonPlusMouseClicked
+        clickOnTheSign('+');
+    }//GEN-LAST:event_jButtonPlusMouseClicked
+
+    private void jButtonMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMinusMouseClicked
+        clickOnTheSign('-');
+    }//GEN-LAST:event_jButtonMinusMouseClicked
+
+    private void jButtonMulMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMulMouseClicked
+        clickOnTheSign('*');
+    }//GEN-LAST:event_jButtonMulMouseClicked
+
+    private void jButtonDivMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDivMouseClicked
+        clickOnTheSign('/');
+    }//GEN-LAST:event_jButtonDivMouseClicked
+
+    private void jButtonEquallyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEquallyMouseClicked
+        switch (sign) {
+            case '+': {
+                currentNumber = firstNumber + currentNumber;
+                break;
+            }
+            case '-': {
+                currentNumber = firstNumber - currentNumber;
+                break;
+            }
+            case '*': {
+                currentNumber = firstNumber * currentNumber;
+                break;
+            }
+            case '/': {
+                currentNumber = firstNumber / currentNumber;
+                break;
+            }
+        }
+        printTheNumber();
+    }//GEN-LAST:event_jButtonEquallyMouseClicked
 
     /**
      * @param args the command line arguments
@@ -216,6 +389,10 @@ public class CalculateJFrame extends javax.swing.JFrame {
             }
         });
     }
+    private double firstNumber;
+    private double currentNumber;
+    private double factor;
+    private char sign;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton0;
     private javax.swing.JButton jButton1;
@@ -233,6 +410,6 @@ public class CalculateJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonMul;
     private javax.swing.JButton jButtonPlus;
     private javax.swing.JButton jButtonPoint;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
