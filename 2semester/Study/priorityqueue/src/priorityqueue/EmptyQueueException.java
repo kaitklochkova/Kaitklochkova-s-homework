@@ -2,15 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package priorityqueue;
 
 /**
  *
- * @author Author
+ * @author Miracle
  */
-public class EmptyQueueException extends Exception {
-    public EmptyQueueException() {
+public class EmptyQueueException {
+        public EmptyQueueException() {
         super();
     }
     public EmptyQueueException(String str) {

@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package priorityqueue;
 
 import org.junit.After;
@@ -36,19 +35,10 @@ public class MyPriorityQueueTest {
     @After
     public void tearDown() {
     }
-    
-    public void testEnqueue() throws Exception {
-        MyPriorityQueue<Integer> instance = new MyPriorityQueue<Integer>();
-        instance.enqueue(100, 3);
-        instance.enqueue(100, 1);
-        int tmp = instance.dequeue();
-        assertEquals(100, tmp);
-    }
-    
 
     /**
      * Test of enqueue method, of class MyPriorityQueue.
-     
+     */
     @Test
     public void testEnqueueDequeueInteger() throws Exception {
         MyPriorityQueue<Integer> instance = new MyPriorityQueue<Integer>();
@@ -60,25 +50,26 @@ public class MyPriorityQueueTest {
         assertEquals("second elem", 100, ret);
     }
 
+    /**
+     * Test of enqueue method, of class MyPriorityQueue.
+     */
     @Test
     public void testEnqueueDequeueString() throws Exception {
         MyPriorityQueue<String> instance = new MyPriorityQueue<String>();
         instance.enqueue("str1", 1);
         instance.enqueue("str2", 1);
         String ret = instance.dequeue();
-        assertEquals("first elem", "str2", ret);
+        assertEquals("first elem", "str1", ret);
         ret = instance.dequeue();
-        assertEquals("second elem", "str1", ret);
+        assertEquals("second elem", "str2", ret);
     }
 
-    @Test
+    /**
+     * Test of Exception method, of class MyPriorityQueue.
+     */
+    @Test(expected = EmptyQueueException.class)
     public void testQueueException() throws Exception {
         MyPriorityQueue<String> instance = new MyPriorityQueue<String>();
-        try {
-            instance.dequeue();
-        } catch (Exception e) {
-            assertEquals("empty queue", 1, 1);
-        }        
+        instance.dequeue();
     }
-    * */
 }
