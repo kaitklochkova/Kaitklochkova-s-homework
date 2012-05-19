@@ -105,17 +105,21 @@ public class MyPriorityQueue<T> {
          * value of element
          */
         private T value;    
+       
         /*
          * next element
          */
         private ListElement next; 
+       
         /*
          * priority of element
          */
         private int priority;      
     }
+    
     /*
      * head of the queue
      */
     private ListElement head;
+    
 }

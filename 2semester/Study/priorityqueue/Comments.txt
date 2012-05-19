@@ -1,0 +1,28 @@
+1. Ошибка компилятора Unexpected type. 
+MyPriorityQueue<int> intQueue = new MyPriorityQueue<int>(); => MyPriorityQueue<Integer> intQueue = new MyPriorityQueue<Integer>();
+
+2. private class ListElement вниз
+
+3. Поле ListElement prio => priority. И вообще везде, в т.ч. getPrio => getPriority. В методах ListElement правка названий v => value, p => priority, nxt => listElement
+
+5.  java-doc-комментарии: оформление и местами содержание
+
+7. Ненужные присвоения в тестах
+
+8. System.out.println в тестах
+
+9. В enqueue не проверяется голова
+
+10. В dequeue  ListElement tmp = head.getNext(); =>  ListElement tmp = head;
+
+11. В testEnqueueDequeueString в assertEquals перепутаны str1 и str2
+
+12. В тестах нет комментариев
+
+13. Оформление теста на исключение testQueueException
+
+14. В dequeue бросать не RunTimeException, а EmptyQueueException
+
+15. Проверки из main в тесты, а main вообще убрать
+
+16. Сделать отдельные тесты на dequeue и enqueue

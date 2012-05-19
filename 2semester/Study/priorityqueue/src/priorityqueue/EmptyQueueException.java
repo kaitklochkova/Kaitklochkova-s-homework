@@ -8,8 +8,8 @@ package priorityqueue;
  *
  * @author Miracle
  */
-public class EmptyQueueException {
-        public EmptyQueueException() {
+public class EmptyQueueException extends Exception {
+    public EmptyQueueException() {
         super();
     }
     public EmptyQueueException(String str) {
