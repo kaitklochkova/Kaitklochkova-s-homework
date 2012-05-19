@@ -4,6 +4,7 @@
  */
 package list;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
@@ -112,6 +113,7 @@ public class List <Type> implements Iterable<Type> {
     /*
      * @return iterator
      */
+    @Override
     public ListIterator iterator() {
         return new ListIterator();
     }
@@ -153,6 +155,11 @@ public class List <Type> implements Iterable<Type> {
          * link to the element of list
          */
         private ListElement link;
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
     }
 
     private class ListElement {

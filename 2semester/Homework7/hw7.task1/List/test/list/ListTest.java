@@ -341,16 +341,16 @@ public class ListTest {
     
     /**
      * Test of foreach
-     *//*
+     */
     @Test
     public void testForeach() throws NotInList {
         List <Integer> list = new List<Integer>();
         list.addToHead(3);
-        list.addToHead(4);
-        list.addToHead(5);
+        list.addToHead(2);
+        list.addToHead(1);
         for (Integer i : list) {
             assertEquals(list.getValueOfHead(), i, 0.0);
             list.delFromBegin();
         }
-    }*/
+    }
 }
