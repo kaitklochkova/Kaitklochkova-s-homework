@@ -4,6 +4,8 @@
  */
 package list;
 
+import java.util.NoSuchElementException;
+
 /**
  *
  * @author Miracle
@@ -31,43 +33,13 @@ public class List <Type> implements Iterable<Type> {
     }
 
     /**
-     * add value to tail of the list
-     *
-     * @param valueForAdd value, which you want to add
-     */
-    public void addToTail(Type valueForAdd) {
-        ListElement newEl = new ListElement();
-        newEl.value = valueForAdd;
-        if (head == null) {
-            newEl.next = head;
-            head = newEl;
-        } else {
-            newEl.next = null;
-            ListElement i = head;
-            while (i.next != null) {
-                i = i.next;
-            }
-            i.next = newEl;
-        }
-        count++;
-    }
-
-    /*
-     * del list
-     */
-    public void clear() {
-        head = null;
-        count = 0;
-    }
-
-    /**
      * del value from the list
      *
      * @param valueForDel value, which you want to del
      */
-    public int delEl(Type valueForDel) {
+    public void delEl(Type valueForDel) throws NotInList{
         if (head == null) {
-            return -1;
+            throw new NotInList();
         } else {
             ListElement i = head;
             while (i.value == valueForDel) {
@@ -83,10 +55,21 @@ public class List <Type> implements Iterable<Type> {
                     i = i.next;
                 }
             }
-            return 0;
         }
     }
 
+    /**
+     * delete  the number from the begin of the list
+     */
+    public void delFromBegin() throws NotInList {
+        if (head != null) {
+            head = head.next;
+        } else {
+            throw new NotInList();
+        }
+    }
+
+    
     /**
      * checks that the number is in list
      *
@@ -118,11 +101,18 @@ public class List <Type> implements Iterable<Type> {
     public int getCount() {
         return count;
     }
+    
+    /**
+     * @return first head's value
+     */
+    public Type getValueOfHead() {
+        return head.value;
+    }
 
     /*
      * @return iterator
      */
-    ListIterator iterator() {
+    public ListIterator iterator() {
         return new ListIterator();
     }
 
@@ -131,7 +121,7 @@ public class List <Type> implements Iterable<Type> {
         /*
          * constructor for iterator
          */
-        ListIterator() {
+        public ListIterator() {
             link = head;
         }
 
@@ -151,8 +141,13 @@ public class List <Type> implements Iterable<Type> {
          */
         @Override
         public Type next() {
-            link = link.next;
-            return link.value;
+            if (hasNext()) {
+                link = link.next;
+                return link.value;
+            } else {
+                throw new NoSuchElementException();
+            }
+            
         }
         /*
          * link to the element of list
@@ -179,10 +174,4 @@ public class List <Type> implements Iterable<Type> {
      * count of list
      */
     private int count;
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
 }

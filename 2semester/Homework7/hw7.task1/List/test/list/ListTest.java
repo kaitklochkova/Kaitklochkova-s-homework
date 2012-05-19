@@ -4,6 +4,7 @@
  */
 package list;
 
+import java.util.NoSuchElementException;
 import list.List.ListIterator;
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -34,158 +35,90 @@ public class ListTest {
     }
 
     /**
-     * Test of getIterator method, of class List.
+     * Test of addToHead method, of class List.
      */
     @Test
-    public void testAddToHeadToEmptyList() {
-        List <Integer> list = new List<Integer>();
-        list.addToHead(1);
-        List.ListIterator iterator = list.getIterator();
-        assertEquals(1, iterator.getValue());
-    }
-
-    /**
-     * Test of add method, of class List.
-     */
-    @Test
-    public void testAddToHead() {
+    public void testAddToHeadToIntList() {
         List <Integer> list = new List<Integer>();
         list.addToHead(1);
         list.addToHead(2);
         list.addToHead(3);
-        List.ListIterator iterator = list.getIterator();
-        iterator.next();
-        assertEquals(2, iterator.getValue());
+        int result = list.getValueOfHead();
+        assertEquals(3, result);
     }
-
-    /**
-     * Test of getIterator method, of class List.
+    
+     /**
+     * Test of addToHead method, of class List.
      */
     @Test
-    public void testAddToTailToEmptyList() {
-        List <Integer> list = new List<Integer>();
-        list.addToTail(1);
-        List.ListIterator iterator = list.getIterator();
-        assertEquals(1, iterator.getValue());
+    public void testAddToHeadToStrList() {
+        List <String> list = new List<String>();
+        list.addToHead("Hello");
+        list.addToHead("World");
+        String result = list.getValueOfHead();
+        assertEquals("World", result);
     }
-
-    /**
-     * Test of getIterator method, of class List.
-     */
-    @Test
-    public void testAddToTail() {
-        List <Integer> list = new List<Integer>();
-        for (int i = 0; i < 5; i++) {
-            list.addToTail(i);
-        }
-        List.ListIterator iterator = list.getIterator();
-        assertEquals(0, iterator.getValue());
-    }
-
-    /**
-     * Test of getIterator method, of class List.
-     */
-    @Test
-    public void testAddToTailAndCheckSecondEl() {
-        List <Integer> list = new List<Integer>();
-        for (int i = 0; i < 5; i++) {
-            list.addToTail(i);
-        }
-        List.ListIterator iterator = list.getIterator();
-        iterator.next();
-        assertEquals(1, iterator.getValue());
-    }
-
-    /**
-     * Test of clear method, of class List.
-     */
-    @Test
-    public void testClear() {
-        List <Integer> list = new List<Integer>();
-        list.addToHead(1);
-        list.addToHead(2);
-        list.addToHead(3);
-        list.clear();
-        List.ListIterator iterator = list.getIterator();
-        assertFalse(iterator.isGood());
-    }
-
+    
     /**
      * Test of delEl method, of class List.
      */
     @Test
-    public void testDelLastEl() {
+    public void testDelIntEl() throws NotInList{
         List <Integer> list = new List<Integer>();
         list.addToHead(1);
-        list.addToHead(2);
-        list.addToHead(3);
-        list.delEl(1);
-        List.ListIterator iterator = list.getIterator();
-        assertEquals(3, iterator.getValue());
-        iterator.next();
-        assertEquals(2, iterator.getValue());
-    }
-
-    /**
-     * Test of delEl method, of class List.
-     */
-    @Test
-    public void testDelFirstAndLastEl() {
-        List <Integer> list = new List<Integer>();
-        list.addToHead(1);
-        list.addToHead(2);
-        list.addToHead(3);
-        list.delEl(1);
-        list.delEl(3);
-        List.ListIterator iterator = list.getIterator();
-        assertEquals(2, iterator.getValue());
-    }
-
-    /**
-     * Test of delEl method, of class List.
-     */
-    @Test
-    public void testDelTwoFirstEl() {
-        List <Integer> list = new List<Integer>();
-        list.addToHead(1);
-        list.addToHead(2);
-        list.addToHead(3);
-        list.addToHead(3);
-        list.delEl(3);
-        List.ListIterator iterator = list.getIterator();
-        assertEquals(2, iterator.getValue());
-        iterator.next();
-        assertEquals(1, iterator.getValue());
-    }
-
-    /**
-     * Test of delEl method, of class List.
-     */
-    @Test
-    public void testDelTwoMidleEl() {
-        List <Integer> list = new List<Integer>();
-        list.addToHead(1);
-        list.addToHead(2);
         list.addToHead(2);
         list.addToHead(3);
         list.delEl(2);
-        List.ListIterator iterator = list.getIterator();
-        assertEquals(3, iterator.getValue());
-        iterator.next();
-        assertEquals(1, iterator.getValue());
+        list.delEl(3);
+        int result = list.getValueOfHead();
+        assertEquals(1, result);
     }
-
+  
     /**
-     * Test of GetIterator method, of class List.
+     * Test of delEl method, of class List.
      */
     @Test
-    public void testGetIteratorOfEmptyList() {
-        List <Integer> list = new List<Integer>();
-        assertFalse(list.iterator().hasNext());
+    public void testDelStrEl() throws NotInList{
+        List <String> list = new List<String>();
+        list.addToHead("Hello");
+        list.addToHead("World");
+        list.addToHead("Yes!");
+        list.delEl("World");
+        list.delEl("Hello");
+        String result = list.getValueOfHead();
+        assertEquals("Yes!", result);
     }
-
+       
     /**
-     * Test of GetIterator method, of class List.
+     * Test of delFromBegin method, of class List.
+     */
+    @Test
+    public void testDelFromBeginIntEl() throws NotInList{
+        List <Integer> list = new List<Integer>();
+        list.addToHead(1);
+        list.addToHead(2);
+        list.addToHead(3);
+        list.delFromBegin();
+        int result = list.getValueOfHead();
+        assertEquals(2, result);
+    }
+    
+    /**
+     * Test of delFromBegin method, of class List.
+     */
+    @Test
+    public void testDelFromBeginStrEl() throws NotInList{
+        List <String> list = new List<String>();
+        list.addToHead("Hello");
+        list.addToHead("World");
+        list.addToHead("Yes!");
+        list.delFromBegin();
+        String result = list.getValueOfHead();
+        assertEquals("World", result);
+    }
+  
+    /**
+     * Test of isElementInList method, of class List.
      */
     @Test
     public void testisElementInListOfEmptyList() {
@@ -194,22 +127,10 @@ public class ListTest {
     }
 
     /**
-     * Test of GetIterator method, of class List.
+     * Test of isElementInList method, of class List.
      */
     @Test
-    public void testisElementInListFirstEl() {
-        List <Integer> list = new List<Integer>();
-        for (int i = 0; i < 5; i++) {
-            list.addToHead(i);
-        }
-        assertTrue(list.isElementInList(4));
-    }
-
-    /**
-     * Test of GetIterator method, of class List.
-     */
-    @Test
-    public void testisElementInListMiddleEl() {
+    public void testisElementInIntList() {
         List <Integer> list = new List<Integer>();
         for (int i = 0; i < 5; i++) {
             list.addToHead(i);
@@ -218,39 +139,63 @@ public class ListTest {
     }
 
     /**
-     * Test of GetIterator method, of class List.
+     * Test of isElementInList method, of class List.
      */
     @Test
-    public void testisElementInListLastEl() {
-        List <Integer> list = new List<Integer>();
-        for (int i = 0; i < 5; i++) {
-            list.addToHead(i);
-        }
-        assertTrue(list.isElementInList(0));
+    public void testisElementInStrList() {
+        List <String> list = new List<String>();
+        list.addToHead("Hello");
+        list.addToHead("World");
+        list.addToHead("Yes!");
+        assertTrue(list.isElementInList("World"));
     }
-
+    
     /**
-     * Test of GetIterator method, of class List.
+     * Test of isElementInList method, of class List.
      */
     @Test
-    public void testisElementInListNotListed() {
+    public void testisElementInIntListNotListed() {
         List <Integer> list = new List<Integer>();
         for (int i = 0; i < 5; i++) {
             list.addToHead(i);
         }
         assertFalse(list.isElementInList(5));
     }
-
+    
     /**
-     * Test of GetIterator method, of class List.
+     * Test of isElementInList method, of class List.
      */
     @Test
-    public void testGetCount() {
+    public void testisElementInStrListNotListed() {
+        List <String> list = new List<String>();
+        list.addToHead("Hello");
+        list.addToHead("World");
+        list.addToHead("Yes!");
+        assertFalse(list.isElementInList("Yes"));
+    }
+
+    /**
+     * Test of GetCount method, of class List.
+     */
+    @Test
+    public void testGetCountIntList() {
         List <Integer> list = new List<Integer>();
         for (int i = 0; i < 5; i++) {
             list.addToHead(i);
         }
         assertEquals(5, list.getCount());
+    }
+    
+        /**
+     * Test of GetCount method, of class List.
+     */
+    @Test
+    public void testGetCountStrList() {
+        List <String> list = new List<String>();
+        list.addToHead("Hello");
+        list.addToHead("World");
+        list.addToHead("Yes!");
+        assertEquals(3, list.getCount());
     }
     
     /**
@@ -262,15 +207,150 @@ public class ListTest {
         assertEquals(0, list.getCount());
     }
     
-     /**
-     * Test of GetIterator method, of class List.
+    /**
+     * Test of GetCount method, of class List.
      */
     @Test
-    public void testFor() {
+    public void testGetCountIntListAfterDel() throws NotInList {
         List <Integer> list = new List<Integer>();
-        for (a : list) {
-            
+        for (int i = 0; i < 5; i++) {
+            list.addToHead(i);
         }
-        assertEquals(0, list.getCount());
+        list.delEl(2);
+        assertEquals(4, list.getCount());
     }
+    
+    /**
+     * Test of GetCount method, of class List.
+     */
+    @Test
+    public void testGetCountStrListAfterDel() throws NotInList {
+        List <String> list = new List<String>();
+        list.addToHead("Hello");
+        list.addToHead("World");
+        list.addToHead("Yes!");
+        list.delEl("World");
+        assertEquals(2, list.getCount());
+    }
+    
+    /**
+     * Test of GetCount method, of class List.
+     */
+    @Test
+    public void testGetValueOfHeadIntList() {
+        List <Integer> list = new List<Integer>();
+        for (int i = 0; i < 5; i++) {
+            list.addToHead(i);
+        }
+        int result = list.getValueOfHead();
+        assertEquals(4, result);
+    }
+    
+        /**
+     * Test of GetCount method, of class List.
+     */
+    @Test
+    public void testGetValueOfHeadStrList() {
+        List <String> list = new List<String>();
+        list.addToHead("Hello");
+        list.addToHead("World");
+        list.addToHead("Yes!");
+        String result = list.getValueOfHead();
+        assertEquals("Yes!", result);
+    }
+  
+    /**
+     * Test of delEl method, of class List, when it throws exception NotInList
+     */
+    @Test(expected=NotInList.class)
+    public void testDelIntElWithExpection() throws NotInList{
+        List <Integer> list = new List<Integer>();
+        list.delEl(3);
+    }
+    
+    /**
+     * Test of delEl method, of class List, when it throws exception NotInList
+     */
+    @Test(expected=NotInList.class)
+    public void testDelStrElWithExpection() throws NotInList{
+        List <String> list = new List<String>();
+        list.delEl("Yes");
+    }
+    
+    /**
+     * Test of delEl method, of class List, when it throws exception NotInList
+     */
+    @Test(expected=NotInList.class)
+    public void testDelFromBeginIWithExpection() throws NotInList{
+        List <Integer> list = new List<Integer>();
+        list.delFromBegin();
+    }
+    
+    /**
+     * Test of delEl method, of class List, when it throws exception NotInList
+     */
+    @Test(expected=NotInList.class)
+    public void testDelFromBeginStrElWithExpection() throws NotInList{
+        List <String> list = new List<String>();
+        list.delFromBegin();
+    }
+    
+    /**
+     * Test of next method, of class ListIterator.
+     */
+    @Test
+    public void testNext() {
+        List <Integer> list = new List<Integer>();
+        for (int i = 0; i < 5; i++) {
+            list.addToHead(i);
+        }
+        int result = list.iterator().next();
+        assertEquals(3, result);
+    }
+    
+    /**
+     * Test of next method, of class ListIterator.
+     */
+    @Test(expected = NoSuchElementException.class)
+    public void testNextOfEmptyList() {
+        List <Integer> list = new List<Integer>();
+        list.iterator().next();
+    }
+    
+    /**
+     * Test of HasNext method, of class ListIterator.
+     */
+    @Test
+    public void testHasNext() {
+        List <Integer> list = new List<Integer>();
+        for (int i = 0; i < 5; i++) {
+            list.addToHead(i);
+        }
+        assertTrue(list.iterator().hasNext());
+    }
+    
+    /**
+     * Test of next method, of class ListIterator.
+     */
+    @Test
+    public void testHasNextOfEmptyList() {
+        List <Integer> list = new List<Integer>();
+        assertFalse(list.iterator().hasNext());
+    }
+
+    
+    /**
+     * Test of foreach
+     *//*
+    @Test
+    public void testForeach() throws NotInList {
+        List <Integer> list = new List<Integer>();
+        list.addToHead(3);
+        list.addToHead(4);
+        list.addToHead(5);
+        for (Integer i : list) {
+            assertEquals(list.getValueOfHead(), i, 0.0);
+            list.delFromBegin();
+        }
+    }*/
 }
