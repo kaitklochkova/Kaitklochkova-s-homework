@@ -134,8 +134,10 @@ public class List<Type> implements Iterable<Type> {
          */
         @Override
         public boolean hasNext() {
-            return link != null;
-
+            if (link == null) {
+                return false;
+            }
+            return link.next != null;
         }
 
         /*

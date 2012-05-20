@@ -332,7 +332,6 @@ public class ListTest {
     /**
      * Test of next method, of class ListIterator.
      */
-    @Test
     public void testHasNextOfEmptyList() {
         List <Integer> list = new List<Integer>();
         assertFalse(list.iterator().hasNext());
