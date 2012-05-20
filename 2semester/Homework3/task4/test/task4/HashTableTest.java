@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  * @author Miracle
  */
 public class HashTableTest {
-    
+
     public HashTableTest() {
     }
 
@@ -23,22 +23,15 @@ public class HashTableTest {
     @AfterClass
     public static void tearDownClass() throws Exception {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
 
-        
-    /**
-     * Test of hashFun method, of class HashTable.
-     */
-    @Test
-    public void testHashFun() {
-    }
     /**
      * Test of addHash method, of class HashTable.
      */
@@ -49,6 +42,7 @@ public class HashTableTest {
         hashTable.addHash("1");
         assertTrue(hashTable.isElementInHashTable("1"));
     }
+
     /**
      * Test of delHash method, of class HashTable.
      */
@@ -70,7 +64,7 @@ public class HashTableTest {
         hashTable.delHash("1");
         assertFalse(hashTable.isElementInHashTable("1"));
     }
-    
+
     /**
      * Test of clearHash method, of class HashTable.
      */
@@ -92,7 +86,7 @@ public class HashTableTest {
         HashTable hashTable = new HashTable(myHashFun);
         assertFalse(hashTable.isElementInHashTable("1"));
     }
-    
+
     /**
      * Test of isElementInHashTable method, of class HashTable.
      */
@@ -104,5 +98,24 @@ public class HashTableTest {
         hashTable.addHash("2");
         hashTable.addHash("1");
         assertTrue(hashTable.isElementInHashTable("1"));
+    }
+
+    /**
+     * Test of changeHashFunction method, of class HashTable
+     */
+    @Test
+    public void testChangeHashFunction() {
+        MyHashFun myHashFun = new MyHashFun();
+        HashTable hashTable = new HashTable(myHashFun);
+        hashTable.addHash("1");
+        hashTable.addHash("2");
+        assertTrue(hashTable.isElementInHashTable("1"));
+        assertTrue(hashTable.isElementInHashTable("2"));   
+        MyHashFun2 myHashFun2 = new MyHashFun2();
+        hashTable.changeHashFunction(myHashFun2);
+        assertTrue(hashTable.isElementInHashTable("1"));
+        assertTrue(hashTable.isElementInHashTable("2")); 
+        hashTable.addHash("3");        
+        assertTrue(hashTable.isElementInHashTable("3")); 
     }
 }
