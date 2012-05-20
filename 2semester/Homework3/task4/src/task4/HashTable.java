@@ -57,6 +57,9 @@ public class HashTable {
         return count;
     }
     
+    /**
+     * change current hashFun for newHashFun
+     */
     public void changeHashFunction(HashFunInterface newHashFun) {
         List[] newBuckets = new List[count];     
         for (int i = 0; i < count; i++) {
@@ -86,9 +89,18 @@ public class HashTable {
         return bucket[hashFun.hashFun(str) % count].isElementInList(str);       
     }
     
+    /*
+     * element of hashTable
+     */
     private List[] bucket;
+    /*
+     * count of hashTable
+     */
     private int count;
-    HashFunInterface hashFun;
+    /**
+     * hash function
+     */
+    private HashFunInterface hashFun;
     /**
      * @param args the command line arguments
      */

@@ -16,7 +16,7 @@ public class List<Type> implements Iterable<Type> {
     /**
      * constructor for list
      */
-    List() {
+    public List() {
         head = null;
         count = 0;
     }
