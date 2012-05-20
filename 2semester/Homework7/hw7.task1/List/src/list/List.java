@@ -11,7 +11,8 @@ import java.util.NoSuchElementException;
  *
  * @author Miracle
  */
-public class List <Type> implements Iterable<Type> {
+public class List<Type> implements Iterable<Type> {
+
     /**
      * constructor for list
      */
@@ -38,7 +39,7 @@ public class List <Type> implements Iterable<Type> {
      *
      * @param valueForDel value, which you want to del
      */
-    public void delEl(Type valueForDel) throws NotInList{
+    public void delEl(Type valueForDel) throws NotInList {
         if (head == null) {
             throw new NotInList();
         } else {
@@ -60,7 +61,7 @@ public class List <Type> implements Iterable<Type> {
     }
 
     /**
-     * delete  the number from the begin of the list
+     * delete the number from the begin of the list
      */
     public void delFromBegin() throws NotInList {
         if (head != null) {
@@ -70,7 +71,6 @@ public class List <Type> implements Iterable<Type> {
         }
     }
 
-    
     /**
      * checks that the number is in list
      *
@@ -102,7 +102,7 @@ public class List <Type> implements Iterable<Type> {
     public int getCount() {
         return count;
     }
-    
+
     /**
      * @return first head's value
      */
@@ -149,7 +149,7 @@ public class List <Type> implements Iterable<Type> {
             } else {
                 throw new NoSuchElementException();
             }
-            
+
         }
         /*
          * link to the element of list
@@ -181,4 +181,24 @@ public class List <Type> implements Iterable<Type> {
      * count of list
      */
     private int count;
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        List<Integer> list = new List<Integer>();
+        list.addToHead(3);
+        list.addToHead(4);
+        list.addToHead(5);
+        int k = 0;
+        for (Integer i : list) {
+            
+            try {
+                list.delFromBegin();
+            } catch (NotInList notInList) {
+                
+            }
+            k = list.getValueOfHead();
+        }
+    }
 }

@@ -346,11 +346,11 @@ public class ListTest {
     public void testForeach() throws NotInList {
         List <Integer> list = new List<Integer>();
         list.addToHead(3);
-        list.addToHead(2);
-        list.addToHead(1);
+        list.addToHead(4);
+        list.addToHead(5);
         for (Integer i : list) {
-            assertEquals(list.getValueOfHead(), i, 0.0);
             list.delFromBegin();
+            assertEquals(list.getValueOfHead(), i, 0.0);
         }
     }
 }
