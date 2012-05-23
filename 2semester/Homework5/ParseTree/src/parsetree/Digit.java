@@ -22,7 +22,7 @@ public class Digit implements TreeElement {
      */
     @Override
     public void print() {
-        System.out.print(digit + ' ');
+        System.out.format("%d ", digit);
     }
     
     /**
@@ -31,8 +31,8 @@ public class Digit implements TreeElement {
      * @return digit
      */
     @Override
-    public int calculate() {
-        return digit;//Integer.parseInt(String.valueOf(digit));//Integer.parseInt(digit);
+    public int calculate(int value1, int value2) throws IncorrectOperation{
+        throw new UnsupportedOperationException("Not supported yet.");
     }    
 
     @Override
@@ -59,4 +59,24 @@ public class Digit implements TreeElement {
      * value of digit
      */
     private int digit;
+
+    @Override
+    public boolean isDigit() {
+        return true;
+    }
+
+    @Override
+    public boolean isOperation() {
+        return false;
+    }
+
+    @Override
+    public int getDigit() {
+        return digit;
+    }
+
+    @Override
+    public char getOperation() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

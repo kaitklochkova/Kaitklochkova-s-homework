@@ -27,6 +27,9 @@ public class ParseTree {
         root.print();
     }
 
+    public TreeElement copyTree() {
+        return root;
+    }
     /*
      * Build the ParseTree @param arithmeticExpression, which we want use to
      * build the tree
@@ -62,7 +65,7 @@ public class ParseTree {
                     if (isDigit(arithmeticExpression.charAt(count))) {
                         int digit = Integer.parseInt(String.valueOf(arithmeticExpression.charAt(count)));
                         TreeElement newDigit = new Digit(digit);
-                        newOperation.setLeftSon(newDigit);
+                        newOperation.setRightSon(newDigit);
                         count++;
                     } else {
                         if (arithmeticExpression.charAt(count) == ')') {
@@ -123,11 +126,10 @@ public class ParseTree {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IncorrectString {
-        try {
-            ParseTree newTree = new ParseTree("(+(+11)2)");
-            newTree.print();
-        } catch (IncorrectString exception1) {
-        }
+    public static void main(String[] args) throws IncorrectString, IncorrectOperation, IncorrectTree {
+        ParseTree newTree = new ParseTree("(*(+11)2)");
+        newTree.print();
+        CountTree countTree = new CountTree(newTree);
+        System.out.format("%d ", countTree.calculateTree(newTree.copyTree()));
     }
 }

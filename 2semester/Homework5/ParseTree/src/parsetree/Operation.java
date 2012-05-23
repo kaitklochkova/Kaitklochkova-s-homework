@@ -21,7 +21,7 @@ public class Operation implements TreeElement{
     @Override
     public void print() {
         System.out.print('(');
-        System.out.print(operation + ' ');
+        System.out.format("%c ", operation);
         leftSon.print();
         rightSon.print();
         System.out.print(')');
@@ -72,7 +72,38 @@ public class Operation implements TreeElement{
     private TreeElement rightSon;
 
     @Override
-    public int calculate() {
+    public int calculate(int value1, int value2) throws IncorrectOperation {
+        switch(operation) {
+            case '+': 
+                return value1 + value2;
+            case '-': 
+                return value1 - value2;
+            case '*': 
+                return value1 * value2;
+            case '/': 
+                return value1 / value2;
+            default:
+                throw new IncorrectOperation();
+        }
+    }
+
+    @Override
+    public boolean isDigit() {
+        return false;
+    }
+
+    @Override
+    public boolean isOperation() {
+        return true;
+    }
+
+    @Override
+    public int getDigit() {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public char getOperation() {
+        return operation;
     }
 }

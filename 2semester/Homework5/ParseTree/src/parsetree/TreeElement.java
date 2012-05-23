@@ -50,5 +50,13 @@ public interface TreeElement {
      * @return number, if element is number; 
      * result of the operation if element is operation
      */
-     int calculate();
+     int calculate(int value1, int value2) throws IncorrectOperation;
+     
+     boolean isDigit();
+     
+     boolean isOperation();
+     
+     int getDigit();
+     
+     char getOperation();
 }
