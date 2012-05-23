@@ -47,6 +47,6 @@ public class ParseTreeTest {
     public void testGetRoot() throws IncorrectString{
         ParseTree tree = new ParseTree("(+11)");
         TreeElement operation = new Operation('+');
-        //assertEquals(operation, tree.getRoot());
+        assertEquals(operation, tree.getRoot());
     }
 }

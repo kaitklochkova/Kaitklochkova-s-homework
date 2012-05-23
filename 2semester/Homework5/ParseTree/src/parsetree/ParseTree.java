@@ -59,7 +59,7 @@ public class ParseTree {
                     }
                 }
                 if (isBracket(arithmeticExpression.charAt(count))) {
-                    newOperation.setLeftSon(buildParseTree(arithmeticExpression));
+                    newOperation.setRightSon(buildParseTree(arithmeticExpression));
                     count++;
                 } else {
                     if (isDigit(arithmeticExpression.charAt(count))) {
