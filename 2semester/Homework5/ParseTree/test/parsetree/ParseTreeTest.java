@@ -39,14 +39,4 @@ public class ParseTreeTest {
     public void testSomeMethod() throws IncorrectString{
         ParseTree tree = new ParseTree("(*(+11)2)");
     }
-    
-    /**
-     * Test of getRoot method, of class ParseTree.
-     */
-    @Test
-    public void testGetRoot() throws IncorrectString{
-        ParseTree tree = new ParseTree("(+11)");
-        TreeElement operation = new Operation('+');
-        assertEquals(operation, tree.getRoot());
-    }
 }
