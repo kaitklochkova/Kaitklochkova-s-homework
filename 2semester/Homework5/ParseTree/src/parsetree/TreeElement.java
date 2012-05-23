@@ -37,8 +37,7 @@ public interface TreeElement {
      * @return right sun
      */
     TreeElement getRightSon();
-    
-        
+
     /**
      * prints element
      */
@@ -47,16 +46,20 @@ public interface TreeElement {
     /**
      * calculates element
      *
-     * @return number, if element is number; 
-     * result of the operation if element is operation
+     * @return result of the operation if element is operation
      */
-     int calculate(int value1, int value2) throws IncorrectOperation;
-     
-     boolean isDigit();
-     
-     boolean isOperation();
-     
-     int getDigit();
-     
-     char getOperation();
+    int calculate(int value1, int value2) throws IncorrectOperation;
+
+    /**
+     * Check, is it a digit
+     *
+     * @param sign
+     * @return True if sign the digit and false if doesn't
+     */
+    boolean isDigit();
+
+    /*
+     * @return value of digit of TreeElement if isDigit
+     */
+    int getDigit();
 }

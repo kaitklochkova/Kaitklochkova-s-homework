@@ -26,30 +26,59 @@ public class Digit implements TreeElement {
     }
     
     /**
-     * calculates element
-     *
-     * @return digit
+      * Check, is it a digit
+      *
+      * @param sign
+      * @return true 
+      */ 
+    @Override
+    public boolean isDigit() {
+        return true;
+    }
+    
+    /*
+     * @return value of digit of TreeElement if isDigit
+     */
+    @Override
+    public int getDigit() {
+        return digit;
+    }
+    
+    /*
+     * Unsupported operation 
      */
     @Override
     public int calculate(int value1, int value2) throws IncorrectOperation{
         throw new UnsupportedOperationException("Not supported yet.");
     }    
 
+    /*
+     * Unsupported operation 
+     */
     @Override
     public void setLeftSon(TreeElement left) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    /*
+     * Unsupported operation 
+     */
     @Override
     public TreeElement getLeftSon() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    /*
+     * Unsupported operation 
+     */
     @Override
     public void setRightSon(TreeElement right) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    /*
+     * Unsupported operation 
+     */
     @Override
     public TreeElement getRightSon() {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -59,24 +88,4 @@ public class Digit implements TreeElement {
      * value of digit
      */
     private int digit;
-
-    @Override
-    public boolean isDigit() {
-        return true;
-    }
-
-    @Override
-    public boolean isOperation() {
-        return false;
-    }
-
-    @Override
-    public int getDigit() {
-        return digit;
-    }
-
-    @Override
-    public char getOperation() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }

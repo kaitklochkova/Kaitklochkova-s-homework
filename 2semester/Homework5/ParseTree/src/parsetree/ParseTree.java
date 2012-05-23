@@ -27,9 +27,10 @@ public class ParseTree {
         root.print();
     }
 
-    public TreeElement copyTree() {
+    public TreeElement getRoot() {
         return root;
     }
+
     /*
      * Build the ParseTree @param arithmeticExpression, which we want use to
      * build the tree
@@ -57,7 +58,6 @@ public class ParseTree {
                         }
                     }
                 }
-
                 if (isBracket(arithmeticExpression.charAt(count))) {
                     newOperation.setLeftSon(buildParseTree(arithmeticExpression));
                     count++;
@@ -114,10 +114,12 @@ public class ParseTree {
     private boolean isBracket(char sign) {
         return (sign == '(');
     }
+    
     /*
      * root of the tree
      */
     private TreeElement root;
+    
     /*
      * count of added element to the tree
      */
@@ -127,9 +129,9 @@ public class ParseTree {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IncorrectString, IncorrectOperation, IncorrectTree {
-        ParseTree newTree = new ParseTree("(*(+11)2)");
+        ParseTree newTree = new ParseTree("(*(+23)(+45))");
         newTree.print();
         CountTree countTree = new CountTree(newTree);
-        System.out.format("%d ", countTree.calculateTree(newTree.copyTree()));
+        System.out.format("%d ", countTree.calculateTree(newTree.getRoot()));
     }
 }

@@ -10,12 +10,20 @@ package parsetree;
  */
 public class CountTree {
     
+    /*
+     * costructor for CountTree
+     */
     public CountTree(ParseTree tree) {
-        root = tree.copyTree();
-}
-    
-    public int calculateTree(TreeElement temp) throws IncorrectOperation, IncorrectTree{
-        temp = root;
+        root = tree.getRoot();
+    }
+
+    /*
+     * calculate expression in the node
+     * 
+     * @param temp - node, whose value we want to calculate
+     * @return value of expression in our node
+     */
+    public int calculateTree(TreeElement temp) throws IncorrectOperation, IncorrectTree {
         if (temp.getLeftSon().isDigit() && temp.getRightSon().isDigit()) {
             return temp.calculate(temp.getLeftSon().getDigit(), temp.getRightSon().getDigit());
         }
@@ -23,7 +31,7 @@ public class CountTree {
             int rightValue = calculateTree(temp.getRightSon());
             return temp.calculate(temp.getLeftSon().getDigit(), rightValue);
         }
-        if (!temp.getLeftSon().isDigit() && temp.getRightSon().isDigit()) {
+        if (temp.getRightSon().isDigit() && !temp.getLeftSon().isDigit()) {
             int leftValue = calculateTree(temp.getLeftSon());
             return temp.calculate(leftValue, temp.getRightSon().getDigit());
         }
@@ -35,5 +43,8 @@ public class CountTree {
         throw new IncorrectTree();
     }
     
-    TreeElement root;
+    /*
+     * root of the CountTree
+     */
+    private TreeElement root;
 }

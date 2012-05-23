@@ -33,11 +33,65 @@ public class DigitTest {
     }
     
     /**
-     * Test of constructor of class List.
+     * Test of isDigit method of class Digit.
      */
     @Test
-    public void testDigit() {
-        Digit newDigit = new Digit(1);
+    public void testIsDigit() {
+        TreeElement digit = new Digit(1);
+        assertTrue(digit.isDigit());
     }
-   
+    
+    /**
+     * Test of getDigit method of class Digit.
+     */
+    @Test
+    public void testGetDigit() {
+        TreeElement digit = new Digit(1);
+        assertEquals(1, digit.getDigit());
+    }
+    
+    /**
+     * Test of getRightSon method, of class Digit.
+     */
+    @Test(expected = UnsupportedOperationException.class)
+    public void testCalculate() {
+        TreeElement digit = new Digit(1);
+        digit.getRightSon();
+    }
+    
+    /**
+     * Test of getRightSon method, of class Digit.
+     */
+    @Test(expected = UnsupportedOperationException.class)
+    public void testGetRightSon() {
+        TreeElement digit = new Digit(1);
+        digit.getRightSon();
+    }
+
+    /**
+     * Test of getLeftSon method, of class Digit.
+     */
+    @Test(expected = UnsupportedOperationException.class)
+    public void testGetLeftSon() {
+        TreeElement digit = new Digit(1);
+        digit.getLeftSon();
+    }
+
+    /**
+     * Test of setRightSon method, of class Digit.
+     */
+    @Test(expected = UnsupportedOperationException.class)
+    public void testSetRightSon() {
+        TreeElement digit = new Digit(1);
+        digit.setRightSon(digit);
+    }
+
+    /**
+     * Test of setLeftSon method, of class Digit.
+     */
+    @Test(expected = UnsupportedOperationException.class)
+    public void testSetLeftSon() {
+        TreeElement digit = new Digit(1);
+        digit.setLeftSon(digit);
+    }
 }

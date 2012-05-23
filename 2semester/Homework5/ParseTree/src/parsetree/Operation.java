@@ -10,6 +10,9 @@ package parsetree;
  */
 public class Operation implements TreeElement{
     
+    /*
+     * constructor for operation
+     */
     public Operation(char operation) {
         this.operation = operation;
         rightSon = null;
@@ -67,10 +70,11 @@ public class Operation implements TreeElement{
         return rightSon;
     }
     
-    private char operation;
-    private TreeElement leftSon;
-    private TreeElement rightSon;
-
+    /**
+     * calculates element
+     *
+     * @return result of the operation
+     */
     @Override
     public int calculate(int value1, int value2) throws IncorrectOperation {
         switch(operation) {
@@ -87,23 +91,35 @@ public class Operation implements TreeElement{
         }
     }
 
+    /**
+      * Check, is it a digit
+      *
+      * @param sign
+      * @return false 
+      */ 
     @Override
     public boolean isDigit() {
         return false;
     }
 
-    @Override
-    public boolean isOperation() {
-        return true;
-    }
-
+    /*
+     * Unsupported operation 
+     */
     @Override
     public int getDigit() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    @Override
-    public char getOperation() {
-        return operation;
-    }
+    
+    /*
+     * operation value
+     */
+    private char operation;
+    /* 
+     * left sun of operation
+     */
+    private TreeElement leftSon;
+    /* 
+     * right sun of operation
+     */
+    private TreeElement rightSon;
 }
