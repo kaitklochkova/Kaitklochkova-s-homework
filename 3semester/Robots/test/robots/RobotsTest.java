@@ -31,8 +31,6 @@ public class RobotsTest {
     @After
     public void tearDown() {
     }
-
-
     
     /**
      * Test of canRobotsBeDestroed method, of class Robots

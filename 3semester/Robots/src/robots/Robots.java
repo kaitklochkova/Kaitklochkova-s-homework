@@ -28,11 +28,7 @@ public class Robots {
      */
     public boolean canRobotsBeDestroed() {
         
-        int countOfRobot = getCountOfRobot();
-        
-        if (countOfRobot == 1) {
-            return false;
-        }      
+        int countOfRobot = getCountOfRobot();            
         
         Queue<Integer> queue = new LinkedList<Integer>(); 
         
@@ -47,11 +43,16 @@ public class Robots {
         
         while (!queue.isEmpty()) {
             int currentNode = queue.remove();
+            
             for (int i = 0; i < this.matrix.length; i++) {
                 if (this.matrix[currentNode][i] == 1) {
+                    
                     for (int j = 0; j < this.matrix.length; j++) {
+                        
                         if (this.matrix[i][j] == 1) {
+                            
                             if (visitedNodes[j] == 0) {
+                                
                                 visitedNodes[j] = 1;
                                 queue.add(j);
 
