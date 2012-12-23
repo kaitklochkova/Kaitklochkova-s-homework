@@ -79,8 +79,11 @@ public class NetworkTest {
      */
     @Test
     public void testStartNetwork(){
-        Network network = new Network();
-        PC[] currentComputers = network.getComputers();
-        network.start();
+        final Network network = new Network();
+        PC[] currentComputers = network.getComputers();      
+        network.starting();
+        for (int i = 0; i < 5; i++) {
+            assertTrue(currentComputers[i].isInfected());
+        }
     }
 }

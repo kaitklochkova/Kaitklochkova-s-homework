@@ -46,7 +46,7 @@ public class PC {
     private OS system;
     
     /**
-     * Curren state of PC
+     * Current state of PC
      */
     private boolean isInfected;
 }

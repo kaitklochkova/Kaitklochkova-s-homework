@@ -4,16 +4,13 @@
  */
 package network;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 /**
  *
  * @author Miracle
  */
 public class Network {
 
-    /*
+    /**
      * construct for network
      */
     public Network(){
@@ -42,7 +39,7 @@ public class Network {
         }       
     }
 
-    /*
+    /**
      * print the current state of net
      */
     public void printNetwork() {
@@ -57,26 +54,40 @@ public class Network {
     }
     
     /**
-     * Starts working
+     * @return true if all computers are infected else - false
      */
-    public void start() {
-        Timer timer = new Timer();
-        StartTimer start = new StartTimer();
-        timer.scheduleAtFixedRate(start, 0, 1000);
+    public boolean networkIsInfected() {
+        boolean result = true;
+        for (int i = 0; i < 5; ++i) {
+            if (!computers[i].isInfected()) {
+                result = false;
+            }
+        }
+        return result;
     }
     
     /**
-     * class for working with timer
-     */
-    class StartTimer extends TimerTask {
-        @Override
-        public void run() {
-            progressNetwork();
-            printNetwork();
+     * peck network status
+     */ 
+    public void start() {
+        int i = 0;
+        while (!networkIsInfected()) {
+            try {
+                i++;
+                System.out.println("Step #" + i);
+                progressNetwork();
+                printNetwork();  
+                Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+                System.out.println("This should not have happened because the exception is written only for delay");
+            }
         }
     }
     
-    
+    /**
+     * 
+     * @return array of computers to do tests 
+     */
     public PC[] getComputers() {
         return this.computers;
     }
