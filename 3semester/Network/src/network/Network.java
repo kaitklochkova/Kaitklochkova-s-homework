@@ -60,15 +60,20 @@ public class Network {
      * Starts working
      */
     public void start() {
-        Timer time = new Timer();
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                progressNetwork();
-                printNetwork();
-            }
-        };
-        time.schedule(task, 1000, 1000);
+        Timer timer = new Timer();
+        StartTimer start = new StartTimer();
+        timer.scheduleAtFixedRate(start, 0, 1000);
+    }
+    
+    /**
+     * class for working with timer
+     */
+    class StartTimer extends TimerTask {
+        @Override
+        public void run() {
+            progressNetwork();
+            printNetwork();
+        }
     }
     
     
