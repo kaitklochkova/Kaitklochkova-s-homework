@@ -24,20 +24,6 @@ public class Robots {
     }
     
     /**
-     * It counts robots
-     * @return count of robots
-     */
-    public int getCountOfRobot() {
-        int count = 0;
-        for (int i = 0; i < this.robotPositions.length; i++) {
-            if (this.robotPositions[i] == 1) {
-                count++;
-            }
-        }
-        return count;
-    }
-    
-    /**
      * @return true if robots can be destroyed else false
      */
     public boolean canRobotsBeDestroed() {
@@ -50,10 +36,54 @@ public class Robots {
         
         Queue<Integer> queue = new LinkedList<Integer>(); 
         
+        int componentAmount = 0;
+        int[] visitedNodes = new int[robotPositions.length];        
+        visitedNodes[0] = 1;
+        queue.add(0);   
         
+        if (this.robotPositions[0] == 1) {
+            componentAmount++;
+        }
+        
+        while (!queue.isEmpty()) {
+            int currentNode = queue.remove();
+            for (int i = 0; i < this.matrix.length; i++) {
+                if (this.matrix[currentNode][i] == 1) {
+                    for (int j = 0; j < this.matrix.length; j++) {
+                        if (this.matrix[i][j] == 1) {
+                            if (visitedNodes[j] == 0) {
+                                visitedNodes[j] = 1;
+                                queue.add(j);
+
+                                if (this.robotPositions[j] == 1) {
+                                    componentAmount++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        if (componentAmount == 1 || countOfRobot - componentAmount == 1) {
+            return false;
+        }
         return true;
     }
     
+    /**
+     * It counts robots
+     * @return count of robots
+     */
+    private int getCountOfRobot() {
+        int count = 0;
+        for (int i = 0; i < this.robotPositions.length; i++) {
+            if (this.robotPositions[i] == 1) {
+                count++;
+            }
+        }
+        return count;
+    }
     
     /**
      *  matrix

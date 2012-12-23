@@ -32,13 +32,13 @@ public class RobotsTest {
     public void tearDown() {
     }
 
-    
+
     
     /**
      * Test of canRobotsBeDestroed method, of class Robots
      */
     @Test
-    public void testCanRobotsBeDestroed1() {
+    public void testCanRobotsBeDestroedIfRobotIsOne() {
         int[][] matrix = {
             {0, 1, 0, 1, 0, 0},
             {1, 0, 1, 0, 0, 0},
@@ -56,11 +56,11 @@ public class RobotsTest {
      * Test of canRobotsBeDestroed method, of class Robots
      */
     @Test
-    public void testCanRobotsBeDestroed() {
+    public void testCanRobotsBeDestroedTrue() {
         int[][] matrix = {
             {0, 1, 0, 1, 0, 0},
-            {1, 0, 1, 0, 0, 0},
-            {0, 1, 0, 0, 0, 0},
+            {1, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0},
             {1, 0, 0, 0, 1, 1},
             {0, 0, 0, 1, 0, 1},
             {0, 0, 0, 1, 1, 0}       
@@ -68,5 +68,23 @@ public class RobotsTest {
         int[] robotsP = {1, 0, 0, 1, 1, 1};
         Robots robots = new Robots(matrix, robotsP);
         assertTrue(robots.canRobotsBeDestroed());
+    }
+    
+    /**
+     * Test of canRobotsBeDestroed method, of class Robots
+     */
+    @Test
+    public void testCanRobotsBeDestroedFalse() {
+        int[][] matrix = {
+            {0, 1, 0, 1, 0, 0},
+            {1, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0},
+            {1, 0, 0, 0, 1, 0},
+            {0, 0, 0, 1, 0, 1},
+            {0, 0, 0, 0, 1, 0}       
+        };
+        int[] robotsP = {1, 0, 0, 1, 0, 1};
+        Robots robots = new Robots(matrix, robotsP);
+        assertFalse(robots.canRobotsBeDestroed());
     }
 }
