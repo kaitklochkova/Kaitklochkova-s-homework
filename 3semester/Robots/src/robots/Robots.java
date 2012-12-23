@@ -66,10 +66,8 @@ public class Robots {
             }
         }
         
-        if (componentAmount == 1 || countOfRobot - componentAmount == 1) {
-            return false;
-        }
-        return true;
+        
+        return !(componentAmount == 1 || countOfRobot - componentAmount == 1);
     }
     
     /**
