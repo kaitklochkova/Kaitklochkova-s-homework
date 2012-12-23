@@ -16,6 +16,7 @@ public class PC {
      * Constrictor
      */
     public PC(OS system, boolean state) {
+        this.random = new Random();
         this.system = system;
         this.isInfected = state;
     }
@@ -33,13 +34,13 @@ public class PC {
      * Gives random test solution
      */
     public void virusAttack() {
-        Random random = new Random();
         int num = random.nextInt(100);
         if (num <= system.getPossibilityOfInfection()) {
             isInfected = true;
         }
     }
     
+    private Random random;
     /**
      * Name of OS
      */

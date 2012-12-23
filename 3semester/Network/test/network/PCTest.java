@@ -4,6 +4,7 @@
  */
 package network;
 
+import java.util.Random;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -12,6 +13,8 @@ import static org.junit.Assert.*;
  * @author Miracle
  */
 public class PCTest {
+    Random random = new Random();
+    int num = random.nextInt(100);
     
     public PCTest() {
     }
@@ -26,6 +29,7 @@ public class PCTest {
     
     @Before
     public void setUp() {
+        
     }
     
     @After

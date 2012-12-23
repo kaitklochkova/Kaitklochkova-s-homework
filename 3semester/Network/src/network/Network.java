@@ -13,27 +13,21 @@ public class Network {
     /**
      * construct for network
      */
-    public Network(){
-        this.computers = new PC[5];
-        this.computers[0] = new PC(new Windows(), true);
-        this.computers[1] = new PC(new Linux(), false);
-        this.computers[2] = new PC(new MacOS(), false);
-        this.computers[3] = new PC(new Linux(), false);
-        this.computers[4] = new PC(new Windows(), true);
+    public Network(int[][] connections, PC[] computers){
+        this.connections = connections;
+        this.computers = computers;
     }
     
     /**
      * Makes system progress
      */
     public void progressNetwork() {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                if ((this.connections[i][j] == 1) && (this.computers[i].isInfected() || this.computers[j].isInfected())) {
+        for (int i = 0; i < this.computers.length; i++) {
+            for (int j = 0; j < this.computers.length; j++) {
+                if (this.connections[i][j] == 1) {
                     if (this.computers[i].isInfected()) {
                         this.computers[j].virusAttack();
-                    } else {
-                        this.computers[i].virusAttack();
-                    }
+                    } 
                 }
             }
         }       
@@ -43,7 +37,7 @@ public class Network {
      * print the current state of net
      */
     public void printNetwork() {
-        for (int i = 0; i < 5; ++i) {
+        for (int i = 0; i < this.computers.length; ++i) {
             if (computers[i].isInfected()) {
                 System.out.println("Computer # " + i + " is infected");
             } else {
@@ -58,7 +52,7 @@ public class Network {
      */
     public boolean networkIsInfected() {
         boolean result = true;
-        for (int i = 0; i < 5; ++i) {
+        for (int i = 0; i < this.computers.length; ++i) {
             if (!computers[i].isInfected()) {
                 result = false;
             }
@@ -100,11 +94,5 @@ public class Network {
     /*
      * matrix relations
      */
-    private int[][] connections = {
-        {0, 0, 1 , 0, 1},
-        {0, 0, 0 , 1, 1},
-        {1, 0, 0 , 0, 0},
-        {0, 1, 0 , 0, 0},
-        {1, 1, 0 , 0, 0},
-    };
+    private int[][] connections;
 }
