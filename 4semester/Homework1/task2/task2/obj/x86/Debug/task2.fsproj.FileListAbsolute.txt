@@ -1,0 +1,6 @@
+C:\Users\Miracle\Desktop\Miracle\прога\task2\task2\bin\Debug\task2.XML
+C:\Users\Miracle\Desktop\Miracle\прога\task2\task2\bin\Debug\task2.exe
+C:\Users\Miracle\Desktop\Miracle\прога\task2\task2\bin\Debug\task2.pdb
+C:\Users\Miracle\Desktop\Miracle\прога\task2\task2\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Miracle\Desktop\Miracle\прога\task2\task2\obj\x86\Debug\task2.exe
+C:\Users\Miracle\Desktop\Miracle\прога\task2\task2\obj\x86\Debug\task2.pdb
