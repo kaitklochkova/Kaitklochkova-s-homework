@@ -1,6 +1,0 @@
-C:\Users\Miracle\Documents\GitHub\Kaitklochkova-s-homework\4semester\Homework2\task3\task3\bin\Debug\task3.XML
-C:\Users\Miracle\Documents\GitHub\Kaitklochkova-s-homework\4semester\Homework2\task3\task3\bin\Debug\task3.exe
-C:\Users\Miracle\Documents\GitHub\Kaitklochkova-s-homework\4semester\Homework2\task3\task3\bin\Debug\task3.pdb
-C:\Users\Miracle\Documents\GitHub\Kaitklochkova-s-homework\4semester\Homework2\task3\task3\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Miracle\Documents\GitHub\Kaitklochkova-s-homework\4semester\Homework2\task3\task3\obj\x86\Debug\task3.exe
-C:\Users\Miracle\Documents\GitHub\Kaitklochkova-s-homework\4semester\Homework2\task3\task3\obj\x86\Debug\task3.pdb
