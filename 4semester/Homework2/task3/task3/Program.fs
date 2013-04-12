@@ -3,11 +3,11 @@
 let rec mul n result = 
     if n > 10
     then
-        let result = result * n % 10
+        let result = result * (n % 10)
         let n = n / 10
         mul n result
     else
         result * n
 
-System.Console.WriteLine(mul 123 1)
+System.Console.WriteLine(mul 239 1)
 ignore(System.Console.Read())
