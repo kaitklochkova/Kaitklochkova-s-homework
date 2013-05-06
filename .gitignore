@@ -48,3 +48,8 @@
 /3semester/Robots/build/
 /3semester/Network/dist/
 /3semester/Network/build/
+3semester/Network/build.xml
+
+3semester/Robots/build.xml
+
+.gitignore
