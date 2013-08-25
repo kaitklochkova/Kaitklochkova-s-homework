@@ -49,20 +49,25 @@ let click(js : String) =
     let id = new System.Net.IPAddress [|IPnumber0; IPnumber1; IPnumber2; IPnumber3|]
     tcpHelper.Connect(id, 1234)
     let myStream = tcpHelper.GetStream()
-    let streamForJS = new System.IO.StreamWriter(myStream)
-    streamForJS.Write(js)
+    while tcpHelper.Connected = false do
+        printf("Not connected")
+    if tcpHelper.Connected
+        then
+            printf("Connected")
+            let streamForJS = new System.IO.StreamWriter(myStream)
+            streamForJS.Write(js)
     tcpHelper.Close()    
      
 buttonUp.Click.Add(fun _ ->
-    click("UP"))
+    click("UP \n"))
 buttonDown.Click.Add(fun _ ->
-    click("DOWN"))
+    click("DOWN\r\n"))
 buttonLeft.Click.Add(fun _ ->
-    click("LEFT"))
+    click("LEFT\r"))
 buttonRight.Click.Add(fun _ ->
-    click("RIGHT"))
+    click("RIGHT\n"))
 buttonStop.Click.Add(fun _ ->
-    click("STOP"))
+    click("STOP\n"))
   
 
 // Show the form
