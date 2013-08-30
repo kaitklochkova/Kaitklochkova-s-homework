@@ -1,5 +1,6 @@
 ﻿// Дополнительные сведения о F# см. на http://fsharp.net
 open System.Collections.Generic
+open System
 
 let chekOnePairOfBrackets bracketLeft bracketRight =
     match bracketRight with
@@ -9,31 +10,32 @@ let chekOnePairOfBrackets bracketLeft bracketRight =
     | _ -> false
 
 let checkBalance (str : string) =
-    let stack = new Stack<char>()
+    let stack = new List<char>()
     let length = str.Length
-    let rec check i = 
+    let rec check stack i = 
         if i < length
         then
             match str.[i] with
             | '(' | '{' | '[' -> 
-                stack.Push(str.[i])
-                check (i + 1)
+                check (str.[i] :: stack) (i + 1)
             | ')' | '}' | ']' -> 
-                if stack.Count = 0  
-                then 
-                    false
+                let bracketLeft = List.head stack
+                if chekOnePairOfBrackets bracketLeft str.[i]
+                then
+                    check (List.tail stack) (i + 1)
                 else 
-                    let bracketLeft = stack.Pop()
-                    if chekOnePairOfBrackets bracketLeft str.[i]
-                    then
-                        check (i + 1)
-                    else 
-                        false
+                    false
             | _ -> false             
         else
-            stack.Count = 0
-    check 0
+            if List.length stack = 1
+            then 
+                true
+            else 
+                false
+    check ['0'] 0
     
 System.Console.WriteLine(checkBalance "([{}]){}([])")
 System.Console.WriteLine(checkBalance "({{")
 ignore(System.Console.Read())
+
+
