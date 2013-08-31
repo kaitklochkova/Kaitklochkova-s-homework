@@ -16,7 +16,7 @@ let listener =
             let tcpClient = tcpListener.AcceptTcpClient() 
             let myStream = tcpClient.GetStream()
             let streamForJS = new System.IO.StreamReader(myStream)
-            let button = streamForJS.Read()
+            let button = streamForJS.ReadLine()
             System.Console.WriteLine(button)
             tcpListener.Stop()
             tcpListener.Start()
