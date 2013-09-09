@@ -2,64 +2,38 @@
 open System.IO
 open System.Text
 
+type contactRecord = {
+    name : string; 
+    number : string
+    }
+
 let addNewRecord phoneBook = 
-    printf "Write name: "
-    let name = Console.ReadLine()
+    printf "Write new name: "
+    let newName = Console.ReadLine()
     printf "Write phone number: "
-    let number = Console.ReadLine()
-    let phoneBook = name :: number :: phoneBook
-    phoneBook
+    let newNumber = Console.ReadLine()
+    ({name = newName; number = newNumber} :: phoneBook)
 
-let findPhoneByName phoneBook = 
-    printf "Write phone number: "
-    let record = Console.ReadLine()
-    let array = List.toArray phoneBook
-    let rec find record (array: string[]) i = 
-        if i >= 0 
-        then
-            if record = array.[i] 
-            then 
-                printfn "Phone: %A" array.[i + 1]
-            else 
-                find record array (i - 1)
-         else 
-            printfn "Sorry, contact is not found"    
-    find record array (array.Length - 1)
+let findContact (phoneBook : contactRecord list) findByName = 
+    Console.Write (if findByName then "write name: " else "write phone number: ")
+    let input = Console.ReadLine()
+    let response = List.tryFind (fun x -> input = (if findByName then x.name else x.number)) phoneBook
+    match response with
+    |None -> Console.Write "sry"
+    |Some x -> Console.Write (if findByName then ("" + x.number) else x.name)
+    
+let saveToFile (phoneBook : contactRecord list) = 
+    File.AppendAllLines("data.txt", List.map (fun x -> "\n" + x.name + "\n" + x.number) phoneBook)
 
-let findNameByPhone phoneBook = 
-    printf "Write phone number: "
-    let record = Console.ReadLine()
-    let array = List.toArray phoneBook
-    let rec find record (array: string[]) i = 
-        if i >= 0 
-        then
-            if record = array.[i] 
-            then 
-                printfn "Name: %A" array.[i - 1]
-            else 
-                find record array (i - 1)
-         else 
-            printfn "Sorry, contact is not found"    
-    find record array (array.Length - 1)
-
-let saveToFile phoneBook = 
-    let contact = List.toArray phoneBook
-    let file = File.WriteAllLines("PhoneBook.txt", contact)
-    printfn "Saved to file"
-    file
-
-let readLines file =
-    seq 
-        { 
-          use inp = File.OpenText file 
-          while not(inp.EndOfStream) do yield (inp.ReadLine())
-        }
-
-let readFromFile file = 
-    try 
-        readLines file |> printfn "\n %A"
-    with 
-    | exn -> printfn "Error! %s" exn.Message
+let readFromFile phoneBookName = 
+    seq{
+        use input = File.OpenText phoneBookName
+        while not(input.EndOfStream) do 
+            yield (
+                let curName = input.ReadLine()
+                let curNumber = input.ReadLine()
+                {name = curName; number = curNumber})
+       } :?> List<contactRecord>
 
 let rec start phoneBook = 
     printfn "Choose an operation and press 'Enter':"
@@ -71,16 +45,16 @@ let rec start phoneBook =
                      Environment.Exit 1
                      phoneBook
             | "1" -> addNewRecord phoneBook
-            | "2" -> findPhoneByName phoneBook
+            | "2" -> findContact phoneBook true
                      phoneBook
-            | "3" -> findNameByPhone phoneBook
+            | "3" -> findContact phoneBook false
                      phoneBook
             | "4" -> saveToFile phoneBook
                      phoneBook
-            | "5" -> readFromFile "PhoneBook.txt"
-                     phoneBook
+            | "5" -> readFromFile "PhoneBook.txt"                   
             |  _  -> printfn "Error. Please, try again."
                      phoneBook
     start phoneBook
+
 
 start []
